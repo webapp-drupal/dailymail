@@ -5,6 +5,13 @@ global-styling:
       css/style.css : {}
    js:
      js/main.js : {}
+   dependencies:
+     - core/jquery
+     - core/drupal.ajax
+     - core/drupal
+     - core/drupalSettings
+     - core/jquery.once
+
 bootstrap-styling:
   version: 1.0
   css:
@@ -14,4 +21,3 @@ bootstrap-styling:
      js/bootstrap.js : {}
   dependencies:
     - core/jquery
-    - core/ajax

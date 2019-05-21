@@ -1,0 +1,12 @@
+name: Dailymail
+type: theme
+description: 'Created for Dailymail loyalty program'
+package: Other
+core: 8.x
+libraries:
+  - dailymail/bootstrap-styling
+  - dailymail/global-styling
+
+
+#base theme: bartik
+

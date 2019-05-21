@@ -1,0 +1,41 @@
+
+<div class="wraper">
+  <div class="container container-fix">
+    <nav class="header">
+
+      {% if page.header %}
+
+        {{page.header}}
+
+      {% endif %}
+<div class="hidden-xs hidden-sm">
+      {% if page.primary_menu %}
+
+        {{ page.primary_menu }}
+
+      {% endif %}
+      <!--showing on large-->
+</div>
+<div class="hidden-lg">
+      {% if page.primary_menu %}
+
+        {{ page.primary_menu }}
+
+      {% endif %}
+      <!--not showing on large -->
+</div>
+    </nav>
+
+          {{ page.content }}
+
+
+     <footer>
+          {% if page.footer %}
+            {{ page.footer }}
+          {% endif %}
+     </footer>
+  </div>
+
+
+
+</div>

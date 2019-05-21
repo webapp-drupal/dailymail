@@ -79,7 +79,7 @@ article img {
 
 }
 
-.form-inline {padding-left: 72px;}
+.form-inline {display: flex;}
 .input-lg {
     height: 40px;
     padding: 9px 15px;

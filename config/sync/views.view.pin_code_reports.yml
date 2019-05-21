@@ -2,8 +2,11 @@ uuid: 226df7bb-ae21-4495-a7d0-cd59e40493e0
 langcode: en
 status: true
 dependencies:
+  config:
+    - user.role.administrator
   module:
     - pin_codes
+    - user
 id: pin_code_reports
 label: 'Pin code reports'
 module: views
@@ -20,8 +23,10 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
       cache:
         type: tag
         options: {  }
@@ -44,12 +49,17 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
-          items_per_page: 10
+          items_per_page: 50
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -58,9 +68,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
+          quantity: 9
       style:
         type: table
       row:
@@ -227,7 +235,84 @@ display:
           type_custom_false: ''
           not: false
           plugin_id: boolean
-      filters: {  }
+      filters:
+        pin_code:
+          id: pin_code
+          table: pin_codes
+          field: pin_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: pin_code_op
+            label: 'Pin Code'
+            description: ''
+            use_operator: false
+            operator: pin_code_op
+            identifier: pin_code
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        pin_code_used:
+          id: pin_code_used
+          table: pin_codes
+          field: pin_code_used
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '0'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: Used
+            description: ''
+            use_operator: false
+            operator: pin_code_used_op
+            identifier: pin_code_used
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
       sorts:
         id:
           id: id
@@ -242,17 +327,33 @@ display:
             label: ''
           plugin_id: standard
       title: 'Pin code reports'
-      header: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Displaying @start - @end of @total'
+          plugin_id: result
       footer: {  }
       empty: {  }
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user.roles
       tags: {  }
   page_1:
     display_plugin: page
@@ -261,10 +362,12 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: pin-code-reports
+      path: admin/reports/pincodes
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user.roles
       tags: {  }

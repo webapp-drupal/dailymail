@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.partners.field_about_business
+    - field.field.node.partners.field_barcode_image
     - field.field.node.partners.field_business_logo
     - field.field.node.partners.field_days_valid
     - field.field.node.partners.field_reward_image
@@ -34,6 +35,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_barcode_image:
+    weight: 29
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
     region: content
   field_business_logo:
     weight: 1

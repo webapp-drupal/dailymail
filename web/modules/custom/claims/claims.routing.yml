@@ -34,6 +34,6 @@ claims.claims_report:
   path: '/claims/voucherUsage/{nid}'
   defaults:
     _controller: '\Drupal\claims\Controller\ClaimsReportController::voucherUsage'
-    _title: 'Voucher usage'
+    _title: 'Partner code usage'
   requirements:
     _role: 'administrator'

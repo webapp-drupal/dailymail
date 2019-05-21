@@ -81,7 +81,7 @@ class AccessForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['pin_code'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('<h3>Enter Your Unique Claim Code</h3>'),
+      '#title' => $this->t('Enter Your Unique Claim Code'),
       '#maxlength' => 15,
       '#size' => 15,
       '#weight' => '0',

@@ -34,6 +34,20 @@ function claims_theme($existing, $type, $theme, $path) {
   ];
 }
 
+/**
+ * Implements hook_preprocess_node().
+ */
+function claims_preprocess_node(&$variables) {
+  $node = $variables['node'];
+
+  $display_options = [
+    'label' => 'hidden'
+  ];
+
+  if ($node->field_barcode_image) {
+    $variables['voucher_code'] = $node->field_barcode_image->view($display_options);
+  }
+}
 
 /**
  * Implementation of computed field hook for voucher code.

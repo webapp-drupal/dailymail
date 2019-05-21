@@ -99,7 +99,7 @@ function dailymail_preprocess_node(array &$variables) {
   $node = $variables['node'];
 
   if ($node->getType() == 'partners') {
-    $link = Link::createFromRoute(t('print'), 'claims.print_claim', ['nid' => $node->id()], ['attributes' => ['class' => 'use-ajax']])->toString();
+    $link = Link::createFromRoute(t('Print'), 'claims.print_claim', ['nid' => $node->id()], ['attributes' => ['class' => 'use-ajax']])->toString();
     $variables['print_link'] = $link;
 
     $variables['site_logo'] = [

@@ -110,7 +110,9 @@ class ClaimVoucherController extends ControllerBase {
     // Load the node and get the voucher code and days voucher is valid for
     $partner_node = $this->entityTypeManager->getStorage('node')->load($nid);
     $voucher_code = $partner_node->get('field_voucher_code')->value;
-    $days_valid = '+' . $partner_node->get('field_days_valid')->value ?: 0 . ' days';
+    $num_days = !empty($partner_node->get('field_days_valid')->value) ? $partner_node->get('field_days_valid')->value : '0';
+    $days_valid = '+' . $num_days . ' days';
+
     $days_valid_time = strtotime($days_valid, time());
 
     $queryString = "UPDATE {claim_codes} SET pin_code = :pin_code, used = 1, claim_date = :claim_date, voucher_expire = :voucher_expire WHERE voucher_code = :voucher_code";

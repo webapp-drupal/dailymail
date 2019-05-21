@@ -1,0 +1,31 @@
+claims.upload_claim_codes:
+  path: '/admin/claim_codes_upload'
+  defaults:
+    _form: '\Drupal\claims\Form\UploadClaimCodes'
+    _title: 'Upload Claim Codes'
+  requirements:
+    _access: 'TRUE'
+
+claims.claim_voucher_controller_display:
+  path: '/claim-voucher'
+  defaults:
+    _controller: '\Drupal\claims\Controller\ClaimVoucherController::display'
+    _title: 'Display'
+  requirements:
+    _custom_access: '\Drupal\pin_codes\Access\PartnersPageAccess::access'
+
+claims.claim_link:
+  path: '/claim-link/{nid}'
+  defaults:
+    _controller: '\Drupal\claims\Controller\ClaimVoucherController::link'
+    _title: 'Link'
+  requirements:
+    _custom_access: '\Drupal\pin_codes\Access\PartnersPageAccess::access'
+
+claims.print_claim:
+  path: '/print-voucher/{nid}'
+  defaults:
+    _controller: '\Drupal\claims\Controller\ClaimVoucherController::print'
+    _title: 'Print Voucher'
+  requirements:
+    _custom_access: '\Drupal\pin_codes\Access\PartnersPageAccess::access'

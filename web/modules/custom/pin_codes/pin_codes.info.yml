@@ -1,0 +1,5 @@
+name: Pin Codes
+type: module
+description: 'Gives ability to upload large amount of pin codes from csv file into the custom database table pin_codes'
+core: 8.x
+package: Claims

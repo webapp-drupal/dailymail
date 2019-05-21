@@ -1,0 +1,6 @@
+pin_codes.import:
+  title: 'Import Pin codes'
+  description: 'Imports pin codes from CSV file'
+  parent: system.admin_config
+  route_name: pin_codes.pin_codes_upload_form
+  weight: 100

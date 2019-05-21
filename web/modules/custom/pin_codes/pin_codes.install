@@ -1,0 +1,41 @@
+<?php
+
+/*
+ * @file
+ * creating custom database table.
+ * Implements hook_schema().
+ *
+ * Defines the database tables used by this module.
+ *
+ * @see hook_schema()
+ *
+ */
+function pin_codes_schema () {
+  $schema['pin_codes'] = [
+  'description' => 'Stores Pin Codes in table with Used or unused status',
+  'fields' => [
+    'id' => [
+      'description' => 'primary key record id for pin codes',
+      'type' => 'serial',
+      'unsigned' => TRUE,
+      'not null' => TRUE,
+    ],
+    'pin_code' => [
+      'description' => 'Pin code in mixed numbers and letters format',
+      'type' => 'varchar',
+      'length' => 255,
+      'not null' => TRUE,
+    ],
+    'pin_code_used' => [
+      'description' => 'Status for pin code whether it is used or not 0(Not used) 1 (Used)',
+      'type' => 'int',
+      'not null' => TRUE,
+      'default' => 0,
+       'size' => 'tiny',
+    ],
+  ],
+  'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

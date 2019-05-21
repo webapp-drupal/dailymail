@@ -1,0 +1,9 @@
+services:
+  plugin.manager.viewsaccess:
+    class: Drupal\pin_codes\Plugin\views\access\PartnersPageAccess
+    parent: default_plugin_manager
+  pin_codes.access_denied.response_subsciber:
+    class: Drupal\pin_codes\EventSubscriber\ResponseSubscriber
+    arguments: ['@user.private_tempstore']
+    tags:
+      - { name: event_subscriber }

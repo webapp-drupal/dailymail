@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains pin_codes.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function pin_codes_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pin_codes module.
+    case 'help.page.pin_codes':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Gives ability to upload large amount of pin codes from csv file into the custom database table pin_codes') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function pin_codes_theme() {
+  return [
+    'pin_codes' => [
+      'render element' => 'children',
+    ],
+  ];
+}

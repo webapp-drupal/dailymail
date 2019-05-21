@@ -1,0 +1,66 @@
+<?php
+
+/*
+ * @file
+ * creating custom database table.
+ * Implements hook_schema().
+ *
+ * Defines the database tables used by this module.
+ *
+ * @see hook_schema()
+ *
+ */
+function claims_schema () {
+  $schema['claim_codes'] = [
+    'description' => 'Stores claim codes in table for partners',
+    'fields' => [
+      'id' => [
+        'description' => 'primary key record id for pin codes',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'voucher_code' => [
+        'description' => 'Claim code in mixed numbers and letters format',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'partner' => [
+        'description' => 'The partner claim code belongs to',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+      ],
+      'pin_code' => [
+        'description' => 'Pin code in mixed numbers and letters format',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'used' => [
+        'description' => 'Whether the code has been used or not',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+      ],
+      'claim_date' => [
+        'description' => 'Date and time the code was used for claim',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'voucher_expire' => [
+        'description' => 'Date and time the voucher expires',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ]
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

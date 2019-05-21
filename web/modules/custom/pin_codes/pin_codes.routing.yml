@@ -1,0 +1,15 @@
+pin_codes.pin_codes_upload_form:
+  path: '/admin/pin-codes-upload'
+  defaults:
+    _form:  '\Drupal\pin_codes\Form\PinCodesUpload'
+    _title: 'Pin Codes upload Form'
+  requirements:
+    _role: 'administrator'
+
+pin_codes.access_form:
+  path: '/pin_codes/form/access'
+  defaults:
+    _form: '\Drupal\pin_codes\Form\AccessForm'
+    _title: 'AccessForm'
+  requirements:
+    _access: 'TRUE'

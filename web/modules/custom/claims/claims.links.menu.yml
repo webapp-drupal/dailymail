@@ -1,0 +1,6 @@
+claims.import_codes:
+  title: 'Import Claim codes'
+  description: 'Imports claim codes from CSV file'
+  parent: system.admin_config
+  route_name: claims.upload_claim_codes
+  weight: 100

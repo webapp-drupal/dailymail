@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Contains claims.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function claims_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the claims module.
+    case 'help.page.claims':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Claims related functionality') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function claims_theme($existing, $type, $theme, $path) {
+  return [
+    'claim_voucher' => [
+      'variables' => ['node' => NULL],
+    ],
+  ];
+}
+
+
+/**
+ * Implementation of computed field hook for voucher code.
+ */
+function computed_field_field_voucher_code_compute($entity_type_manager, $entity, $fields, $delta) {
+  $nid = $entity->id();
+  $connection = \Drupal::database();
+
+  $query = $connection->query('SELECT voucher_code FROM {claim_codes} WHERE partner = :nid AND used = 0 LIMIT 1', [':nid' => $nid]);
+  $value = $query->fetchField();
+
+  return $value;
+}

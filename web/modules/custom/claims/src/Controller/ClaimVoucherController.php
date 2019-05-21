@@ -119,11 +119,6 @@ class ClaimVoucherController extends ControllerBase {
 
     $query = $this->database->query($queryString, [':pin_code' => $pin_code, ':claim_date' => time(), ':voucher_expire' => $days_valid_time, ':voucher_code' => $voucher_code]);
 
-    // \Drupal::logger('$result')->notice('@type', array('@type' => dpr($result, TRUE)));
-    // \Drupal::logger('$voucher_code')->notice('<pre>@type</pre>', array('@type' => print_r($voucher_code, TRUE)));
-
-
-
     // Unset the temporary user data that allow access to claim page
     $this->userPrivateTempstore->get('claims')->delete('partner');
     $this->userPrivateTempstore->get('pin_codes')->delete('pin_code');

@@ -72,7 +72,7 @@ class PinCodesUpload extends FormBase {
     //starting DB conection
     if ($absolute_path) {
       $connection = \Drupal::database();
-      $queryString = "LOAD DATA LOCAL INFILE '" . $absolute_path . "' INTO TABLE {pin_codes} FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES (pin_code)";
+      $queryString = "LOAD DATA LOCAL INFILE '" . $absolute_path . "' INTO TABLE {pin_codes} FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n' IGNORE 1 LINES (pin_code)";
       $query = $connection->query($queryString);
 
       $messenger = \Drupal::messenger();

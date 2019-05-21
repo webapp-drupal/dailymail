@@ -59,6 +59,15 @@ function claims_schema () {
         'default' => 0,
       ]
     ],
+    'unique keys' => [
+      'id_voucher_code' => [
+        'id',
+        'voucher_code',
+      ],
+      'voucher_code' => [
+        'voucher_code',
+      ],
+    ],
     'primary key' => ['id'],
   ];
 

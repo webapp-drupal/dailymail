@@ -34,6 +34,15 @@ function pin_codes_schema () {
        'size' => 'tiny',
     ],
   ],
+  'unique keys' => [
+    'id_pin_code' => [
+      'id',
+      'pin_code',
+    ],
+    'pin_code' => [
+      'pin_code',
+    ],
+  ],
   'primary key' => ['id'],
   ];
 

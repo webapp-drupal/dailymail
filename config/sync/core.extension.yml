@@ -21,6 +21,7 @@ module:
   devel_php: 0
   dynamic_page_cache: 0
   editor: 0
+  entity_print: 0
   field: 0
   field_ui: 0
   file: 0

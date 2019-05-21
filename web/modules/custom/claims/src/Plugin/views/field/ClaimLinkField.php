@@ -52,7 +52,7 @@ class ClaimLinkField extends FieldPluginBase {
    * {@inheritdoc}
    */
   public function render(ResultRow $values) {
-    $link = Link::createFromRoute($this->t('Claim'), 'claims.claim_link', ['nid' => $values->nid], ['attributes' => ['class' => 'use-ajax']])->toString();
+    $link = Link::createFromRoute($this->t('Claim'), 'claims.claim_link', ['nid' => $values->nid], ['attributes' => ['class' => 'use-ajax btn btn-black']])->toString();
     return $link;
   }
 

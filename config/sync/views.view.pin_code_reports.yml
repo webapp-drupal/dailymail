@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - system.menu.admin
     - user.role.administrator
   module:
     - pin_codes
@@ -42,7 +43,7 @@ display:
         type: basic
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -283,7 +284,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: '0'
+          value: All
           group: 1
           exposed: true
           expose:
@@ -326,7 +327,7 @@ display:
           expose:
             label: ''
           plugin_id: standard
-      title: 'Pin code reports'
+      title: 'Pin codes usage'
       header:
         result:
           id: result
@@ -363,6 +364,15 @@ display:
     display_options:
       display_extenders: {  }
       path: admin/reports/pincodes
+      menu:
+        type: normal
+        title: 'Pin codes usage'
+        description: ''
+        expanded: false
+        parent: system.admin_reports
+        weight: 50
+        context: '0'
+        menu_name: admin
     cache_metadata:
       max-age: -1
       contexts:

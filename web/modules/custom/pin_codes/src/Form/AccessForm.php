@@ -85,13 +85,9 @@ class AccessForm extends FormBase {
 
     $form['pin_code'] = [
       '#type' => 'textfield',
-<<<<<<< HEAD
       '#title' => $this->t('Enter Your Unique Claim Code!'),
-=======
-      '#title' => $this->t('Enter Unique Claim Code!'),
->>>>>>> 0f915b1db4bece94e1a074e32d44e746eb477edb
       '#maxlength' => 15,
-      '#size' => 15,
+      '#size' => 15, 
       '#weight' => '0',
       '#ajax' => [
         'callback' => [$this, 'validatePinCode'],

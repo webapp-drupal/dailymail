@@ -11,13 +11,14 @@
 function claims_views_data() {
   $data = [];
 
+  // Claim link field
   $data['views']['claim_link_field'] = [
-     'title' => t('Claim link field'),
-     'help' => t('Provide a field that displays link to claim the voucher'),
-     'field' => [
-       'id' => 'claim_link_field',
-     ]
-   ];
+    'title' => t('Claim link field'),
+    'help' => t('Provide a field that displays link to claim the voucher'),
+    'field' => [
+      'id' => 'claim_link_field',
+    ]
+  ];
 
   $data['claim_codes']['table']['group'] = t('Claims');
   $data['claim_codes']['table']['provider'] = 'claims';
@@ -148,6 +149,16 @@ function claims_views_data() {
     ]
   ];
 
+  // Partner reference filter
+  $data['claim_codes']['partner_titles'] = [
+    'title' => t('Partner node titles'),
+    'filter' => [
+      'title' => t('Partner node titles'),
+      'help' => t('Show partner node Titles as a list.'),
+      'field' => 'partner',
+      'id' => 'partner_titles',
+    ],
+  ];
 
   return $data;
 }

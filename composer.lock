@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a80739497b6b30e2c45ce63924c92f1c",
+    "content-hash": "38d332185770b44086104856bbcdd66f",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2894,7 +2894,9 @@
                     "replace": false,
                     "merge-extra": false
                 },
-                "patches_applied": []
+                "patches_applied": {
+                    "Set the expiration of a key/value pair from the PrivateTempStore": "https://www.drupal.org/files/issues/2019-04-11/2928639-19.patch"
+                }
             },
             "autoload": {
                 "psr-4": {

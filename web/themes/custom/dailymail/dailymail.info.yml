@@ -7,5 +7,7 @@ libraries:
   - dailymail/bootstrap-styling
   - dailymail/global-styling
 
-
+entity_print:
+  node:
+    partners: 'dailymail/print-styling'
 #base theme: bartik

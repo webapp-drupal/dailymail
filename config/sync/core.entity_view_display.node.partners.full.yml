@@ -5,8 +5,11 @@ dependencies:
   config:
     - core.entity_view_mode.node.full
     - field.field.node.partners.field_about_business
+    - field.field.node.partners.field_barcode_image
     - field.field.node.partners.field_business_logo
+    - field.field.node.partners.field_days_valid
     - field.field.node.partners.field_reward_image
+    - field.field.node.partners.field_terms_and_conditions
     - field.field.node.partners.field_voucher_code
     - node.type.partners
   module:
@@ -20,14 +23,14 @@ bundle: partners
 mode: full
 content:
   field_about_business:
-    weight: 4
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_business_logo:
-    weight: 3
+    weight: 2
     label: hidden
     settings:
       image_style: medium
@@ -44,9 +47,16 @@ content:
     third_party_settings: {  }
     type: image
     region: content
+  field_terms_and_conditions:
+    type: text_default
+    weight: 5
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_voucher_code:
     type: computed_string
-    weight: 5
+    weight: 4
     region: content
     label: above
     settings:
@@ -59,4 +69,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_barcode_image: true
+  field_days_valid: true

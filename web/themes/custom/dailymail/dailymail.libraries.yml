@@ -21,3 +21,8 @@ bootstrap-styling:
      js/bootstrap.js : {}
   dependencies:
     - core/jquery
+
+print-styling:
+  css:
+    theme:
+      css/print-style.css: {}

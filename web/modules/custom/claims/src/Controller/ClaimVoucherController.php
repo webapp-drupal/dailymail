@@ -88,7 +88,7 @@ class ClaimVoucherController extends ControllerBase {
     $tempstore = $this->userPrivateTempstore->get('claims');
 
     // Set the partner nid to store for showing on claim voucher page
-    $tempstore->set('partner', $nid);
+    $tempstore->set('partner', $nid, 3600);
 
     $response = new AjaxResponse();
     $response->addCommand(new RedirectCommand('/claim-voucher'));

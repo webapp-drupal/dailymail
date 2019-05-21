@@ -111,11 +111,9 @@ class AccessForm extends FormBase {
     $pin = $form_state->getValue('pin_code');
 
     // Look for the pin in our custom table
-    $queryString = 'SELECT * FROM {pin_codes} WHERE BINARY pin_code=:pin_code';
+    $queryString = 'SELECT * FROM {pin_codes} WHERE BINARY pin_code = :pin_code AND pin_code_used = 0';
     $query = $this->database->query($queryString, [':pin_code' => $pin]);
     $result = $query->fetchField();
-
-    \Drupal::logger('$result')->notice('<pre>@type</pre>', array('@type' => print_r($result, TRUE)));
 
     $response = new AjaxResponse();
 
@@ -143,7 +141,7 @@ class AccessForm extends FormBase {
     $pin = $form_state->getValue('pin_code');
 
     // Look for the pin in our custom table
-    $queryString = 'SELECT * FROM {pin_codes} WHERE BINARY pin_code=:pin_code';
+    $queryString = 'SELECT * FROM {pin_codes} WHERE BINARY pin_code = :pin_code AND pin_code_used = 0';
     $query = $this->database->query($queryString, [':pin_code' => $pin]);
     $result = $query->fetchField();
 

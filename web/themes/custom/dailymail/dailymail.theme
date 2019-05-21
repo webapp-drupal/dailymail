@@ -99,6 +99,19 @@ function dailymail_preprocess_node(array &$variables) {
   $node = $variables['node'];
   $link = Link::createFromRoute(t('print'), 'claims.print_claim', ['nid' => $node->id()], ['attributes' => ['class' => 'use-ajax']])->toString();
   $variables['print_link'] = $link;
+
+  $variables['site_logo'] = [
+    '#theme' => 'image',
+    '#uri' => theme_get_setting('logo.url'),
+    '#alt' => t('Home'),
+  ];
+
+  $num_days = !empty($node->get('field_days_valid')->value) ? $node->get('field_days_valid')->value : '0';
+  $days_valid = '+' . $num_days . ' days';
+  $days_valid_time = strtotime($days_valid, time());
+  $validity = date('d.m.y', $days_valid_time);
+
+  $variables['validity'] = $validity;
 }
 
 /**

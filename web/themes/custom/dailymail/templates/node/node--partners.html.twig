@@ -71,29 +71,12 @@
  */
 #}
 <article{{ attributes }}>
-  {{ print_link }}
-  {{ title_prefix }}
-  {% if not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
-
-  {% if display_submitted %}
-    <footer>
-      {{ author_picture }}
-      <div{{ author_attributes }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
-
-  <div{{ content_attributes }}>
-    {{ content }}
+  <div class="bordered">
+    <div class="logo">{{ site_logo }}</div>
+    <div class="business-logo">{{ content.field_business_logo }}</div>
+    <div class="title">Your free coffee</div>
+    <div class="voucher-code"> {{ voucher_code }}</div>
+    <div class="validity">This voucher must be provided by {{ validity }}</div>
   </div>
-
-  <h1>{{ voucher_code }}</h1>
-
+  <div class="terms"> {{ content.field_terms_and_conditions }}</div>
 </article>

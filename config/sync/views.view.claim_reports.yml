@@ -119,17 +119,14 @@ display:
         type: fields
       fields:
         id:
+          id: id
           table: claim_codes
           field: id
-          id: id
-          entity_type: null
-          entity_field: null
-          plugin_id: numeric
           relationship: none
           group_type: group
           admin_label: ''
           label: ID
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -177,6 +174,9 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
+          entity_type: null
+          entity_field: null
+          plugin_id: numeric
         pin_code:
           id: pin_code
           table: claim_codes
@@ -185,7 +185,7 @@ display:
           group_type: group
           admin_label: ''
           label: 'Pin Code'
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -234,7 +234,7 @@ display:
           group_type: group
           admin_label: ''
           label: Partner
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -348,7 +348,7 @@ display:
           group_type: group
           admin_label: ''
           label: 'Claim date'
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -400,7 +400,7 @@ display:
           group_type: group
           admin_label: ''
           label: 'Voucher Expire Date'
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -444,89 +444,60 @@ display:
           custom_date_format: ''
           timezone: ''
           plugin_id: date
+        used:
+          id: used
+          table: claim_codes
+          field: used
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Used
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          type: yes-no
+          type_custom_true: ''
+          type_custom_false: ''
+          not: false
+          plugin_id: boolean
       filters:
-        partner_titles:
-          id: partner_titles
-          table: claim_codes
-          field: partner_titles
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: ''
-            label: Partner
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: partner
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: 0
-          is_grouped: false
-          group_info:
-            label: 'Partner node titles'
-            description: null
-            identifier: partner_titles
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1: {  }
-              2: {  }
-              3: {  }
-          reduce_duplicates: false
-          plugin_id: partner_titles
-        pin_code:
-          id: pin_code
-          table: claim_codes
-          field: pin_code
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: pin_code_op
-            label: 'Pin Code'
-            description: ''
-            use_operator: false
-            operator: pin_code_op
-            identifier: pin_code
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
         voucher_code:
           id: voucher_code
           table: claim_codes
@@ -566,28 +537,24 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-        claim_date:
-          id: claim_date
+        used:
+          id: used
           table: claim_codes
-          field: claim_date
+          field: used
           relationship: none
           group_type: group
           admin_label: ''
           operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
+          value: All
           group: 1
           exposed: true
           expose:
-            operator_id: claim_date_op
-            label: 'Claim date'
+            operator_id: ''
+            label: Used
             description: ''
             use_operator: false
-            operator: claim_date_op
-            identifier: claim_date
+            operator: used_op
+            identifier: used
             required: false
             remember: false
             multiple: false
@@ -595,9 +562,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -610,52 +574,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: date
-        voucher_expire:
-          id: voucher_expire
-          table: claim_codes
-          field: voucher_expire
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: voucher_expire_op
-            label: 'Voucher Expire Date'
-            description: ''
-            use_operator: false
-            operator: voucher_expire_op
-            identifier: voucher_expire
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: date
+          plugin_id: boolean
       sorts:
         claim_date:
           id: claim_date

@@ -79,9 +79,13 @@ class AccessForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['#attributes'] = [
+      'class' => ['form-inline']
+    ];
+
     $form['pin_code'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Pin code'),
+      '#title' => $this->t('Enter Unique Claim Code!'),
       '#maxlength' => 15,
       '#size' => 15,
       '#weight' => '0',
@@ -93,12 +97,18 @@ class AccessForm extends FormBase {
           'message' => t('Verifying pin code...'),
         ]
       ],
-      '#suffix' => '<span class="pin-invalid-message"></span>'
+      '#suffix' => '<span class="pin-invalid-message"></span>',
+      '#attributes' => [
+        'class' => ['input-lg']
+      ]
     ];
 
     $form['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Submit'),
+      '#attributes' => [
+        'class' => ['btn btn-black']
+      ]
     ];
 
     return $form;

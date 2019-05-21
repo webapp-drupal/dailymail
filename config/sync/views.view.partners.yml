@@ -13,7 +13,6 @@ dependencies:
     - node
     - pin_codes
     - text
-    - views_bootstrap
 id: partners
 label: Partners
 module: views
@@ -59,17 +58,11 @@ display:
           items_per_page: 9
           offset: 0
       style:
-        type: views_bootstrap_grid
+        type: default
         options:
           grouping: {  }
           row_class: ''
           default_row_class: false
-          alignment: horizontal
-          columns: '3'
-          col_xs: col-xs-12
-          col_sm: col-sm-12
-          col_md: col-md-6
-          col_lg: col-lg-4
       row:
         type: fields
       fields:

@@ -1553,7 +1553,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           date_format: custom
-          custom_date_format: 'd/m/y - H:i'
+          custom_date_format: d/m/y
           timezone: ''
           plugin_id: date
       menu:

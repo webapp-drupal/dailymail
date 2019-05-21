@@ -1,131 +1,101 @@
-/*.container-fix {
+@charset "utf-8";
+/* CSS Document */
 
-}*/
+/* COMMON CSS STARTS HERE */
+.btn-black{line-height: 26px;background:#000000;color:aliceblue;letter-spacing:2px;text-decoration:none;font-weight:600;text-transform:uppercase;font-size:14px;height: 40px;padding: 6px 25px;}
+.btn-black:hover, .btn-black:focus{background-color:#fc9e00;color:#131b1f;}
+.input-lg{height: 40px;border-radius: 0;border: 1px solid #ddd;padding:9px 15px;font-size:18px;line-height:22px;}
+.btn, .form-control{border-radius:unset;-webkit-border-radius:unset;}
 
-.header {
-    border-bottom: solid 1px #c3c3c3;
-    margin: 0% 2%;
-    display: flex;
-    margin: 30px 0;
+/***************** HEADER CSS STARTS HERE ***************/
+.header{border-bottom:solid 1px #c3c3c3;margin:40px 0; width: 100%;float:left;}
+.site-branding{margin-right: 20px;display: inline-block;float: left;}
+.site-branding__logo{display: block;}
+.site-branding__logo img{max-width:250px;}
 
+.header .hidden-xs.hidden-sm {float: right; display: none;}
+.main-menu{float:right;width:100%;display: block;}
+.header .navbar-nav > li > a {color: #000000;font-size: 16px;}
+.header .navbar-nav > li > a:focus, .header .navbar-nav > li > a:hover{background:none;text-decoration:underline;}
+/*************** HEADER CSS ENDS HERE ************/
 
-}
-.site-branding {
-    margin-right: 2%;
-    width:65%;
-}
-.site-branding__logo img {
-    width: 250px;
-}
-.navbar-brand img {
-    height: 100px;
-
-}
-.main-menu {
-    margin-top: 25px;
-    float: right;
-    width: 100%;
-
-}
-
-.nav a {
-
-    font-size: 1.2em!important;
-    color: #000000;
-
-}
-
-.nav>li>a:focus, .nav>li>a:hover  {
-    background: none;
-    text-decoration: underline;
-}
-
-/*.navbar-toggle {
-    width: 100%;
-    outline: none;
-    position: relative;
-    border-top: solid 1px #cecece;
-    border-bottom: solid 1px #cecece;
-}
-.navbar-toggle .icon-bar {
-    display: block;
-    width: 22px;
-    height: 2px;
-    border-radius: 1px;
-    border: 2px solid #000000;
-    margin-bottom: 3px;
-
-}
-.navbar-toggle .span-menu {
-    position: relative;
-    top: 25px;
-    left: 25px;
-    font-weight: bold;
-    font-size: 17px;
-
-}
-
-.navbar-collapse {clear: both;}*/
+/***************** HOME PAGE CSS STARTS HERE ****************/
+#block-dailymail-content {float: left;width: 100%;display: block;}
+#block-dailymail-content article img{position:relative;width:100%;object-fit: cover;}
+#block-dailymail-content article h1{margin: 25px 0 15px;}
 
 
-article {
-    margin: 40px 0 0 0;
-}
-article img {
+#block-accessformblock {border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;padding: 20px 0;margin: 0 0 30px;}
+#block-accessformblock, #access-form.form-inline{float:left;width:100%;display: block;}
+#access-form.form-inline{position: relative;}
+#access-form.form-inline .js-form-item.form-item{float:left;width:100%;padding-right:245px;}
+#access-form.form-inline .js-form-item.form-item label{margin: 0 15px 0 0;line-height:40px;font-size:18px;}
+#access-form.form-inline .js-form-item.form-item input.input-lg.form-text{float:right;width:250px;}
+#access-form.form-inline #edit-submit {right: 15px;position: absolute;margin: 0;top: 0;width:220px;}
 
-    position: relative;
-    width: 100%;
+
+/***************** HOME PAGE CSS ENDS HERE ****************/
+
+/***************** CLAIM COFFEE PAGE CSS STARTS HERE ****************/
+#block-dailymail-page-title{clear: both;}
+#block-dailymail-page-title h1{margin: 0 0 30px;}
+#block-dailymail-content .grid .grid-template-columns{display: grid;grid-template-columns:1fr 1fr 1fr;}
+#block-dailymail-content .grid img{width: 100%;}
+#block-dailymail-content .grid .col.col-md-6.col-lg-4 {padding-right: 30px;}
+/***************** CLAIM COFFEE PAGE CSS ENDS HERE ****************/
+
+/***************** USER LOGIN PAGE CSS STARTS HERE ****************/
+#block-dailymail-content .user-login-form{max-width:600px;margin: 0 auto;}
+.user-login-form .js-form-item.form-item {width: 100%;float: left;display: block;margin: 0 0 30px;}
+.user-login-form .js-form-item.form-item input{border-radius: 30px;width:100%;height: 40px;border: 1px solid #ddd;margin: 0 0 10px;}
+.user-login-form .js-form-item.form-item label{margin-left: 15px;}
+.user-login-form .js-form-item.form-item .description{padding-left: 15px;}
+/***************** USER LOGIN PAGE CSS ENDS HERE ****************/
 
 
+.row-box{border-top:solid 1px #c3c3c3;border-bottom:solid 1px #c3c3c3;padding:20px 0;}
+
+
+/***************** SITE FOOTER CSS STARTS HERE ****************/
+footer{margin:30px 0;}
+/***************** SITE FOOTER CSS ENDS HERE ****************/
+
+/***************** SITE RESPONSIVE CSS STARTS HERE ****************/
+@media (min-width:280px) and (max-width:579px) {
+    .h1, h1 {font-size: 30px;}
+    #access-form.form-inline .js-form-item.form-item{padding: 0;margin:20px 0;}
+    #access-form.form-inline .js-form-item.form-item label{width: 100%;display: block;margin: 0;text-align: center;}
+    #access-form.form-inline .js-form-item.form-item input.input-lg.form-text{width: 100%;}
+    #access-form.form-inline #edit-submit{position: static; display: block;margin: 20px auto 0;}
 }
 
-.form-inline {display: flex;}
-.input-lg {
-    height: 40px;
-    padding: 9px 15px;
-    font-size: 18px;
-    line-height: 1.3333333;
-    border-radius: 6px;
-}
-.btn, .form-control {
-    border-radius: unset;
-    -webkit-border-radius: unset;
+@media (min-width:580px) and (max-width:767px) {
+    #access-form.form-inline #edit-submit{width: 120px;}
+    #access-form.form-inline .js-form-item.form-item{padding-right: 145px;}
+    #access-form.form-inline .js-form-item.form-item label{font-size: 14px;}
+    #access-form.form-inline .js-form-item.form-item input.input-lg.form-text{width:175px;}
 }
 
-
-.btn-black {
-
-
-    background: #000000;
-    color: aliceblue;
-    margin-left: 2%;
-    width :220px;
-    letter-spacing: 2px;
-    text-decoration: none;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 14px;
-
-
-
+@media (max-width:767px) {
+    .nav > li{display: inline-block;}
 }
 
-.btn-black:hover {
-    background-color: #fc9e00;
-    color: #131b1f;
+@media (min-width: 768px) and (max-width: 991px) {    
+    #access-form.form-inline #edit-submit{width: 130px;}
+    #access-form.form-inline .js-form-item.form-item{padding-right: 160px;}
+    #access-form.form-inline .js-form-item.form-item label{font-size: 16px;}
+    #access-form.form-inline .js-form-item.form-item input.input-lg.form-text{width: 220px;}
+    .header .hidden-lg{ float: right; }
 }
-.row {margin: 0!important;}
 
-.row-box {
-    border-top : solid 1px #c3c3c3;
-    border-bottom : solid 1px #c3c3c3;
-    padding: 20px 0;
+@media (max-width:991px) {  
 }
-.col-md-6 {
-    padding-left: 0;
-}
-footer {
-    margin: 30px 0;
 
-
+@media (min-width: 992px) and (max-width: 1199px) {
+    .header .hidden-lg{ float: right; }
 }
+
+@media (min-width:1200px) {
+    .header .hidden-xs.hidden-sm{display: block;}
+}
+/***************** SITE RESPONSIVE CSS ENDS HERE ****************/

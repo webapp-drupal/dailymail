@@ -20,6 +20,14 @@ function claims_views_data() {
     ]
   ];
 
+  $data['views']['voucher_code_summary'] = [
+    'title' => t('Voucher codes usage '),
+    'help' => t('Provide a field that displays partner code usage summary'),
+    'field' => [
+      'id' => 'voucher_code_summary',
+    ]
+  ];
+
   $data['claim_codes']['table']['group'] = t('Claims');
   $data['claim_codes']['table']['provider'] = 'claims';
 
@@ -146,7 +154,10 @@ function claims_views_data() {
       'base field' => 'nid',
       'id' => 'standard',
       'label' => t('Partner node'),
-    ]
+    ],
+    'argument' => [
+      'id' => 'string',
+    ],
   ];
 
   // Partner reference filter

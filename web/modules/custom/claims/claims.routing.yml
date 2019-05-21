@@ -29,3 +29,11 @@ claims.print_claim:
     _title: 'Print Voucher'
   requirements:
     _custom_access: '\Drupal\pin_codes\Access\PartnersPageAccess::access'
+
+claims.claims_report:
+  path: '/claims/voucherUsage/{nid}'
+  defaults:
+    _controller: '\Drupal\claims\Controller\ClaimsReportController::voucherUsage'
+    _title: 'Voucher usage'
+  requirements:
+    _role: 'administrator'

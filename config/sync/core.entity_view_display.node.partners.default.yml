@@ -1,0 +1,79 @@
+uuid: 862cef45-af31-4ac6-b8f0-9eb8e9b99b27
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.partners.field_about_business
+    - field.field.node.partners.field_business_logo
+    - field.field.node.partners.field_days_valid
+    - field.field.node.partners.field_reward_image
+    - field.field.node.partners.field_terms_and_conditions
+    - field.field.node.partners.field_voucher_code
+    - node.type.partners
+  module:
+    - computed_field
+    - image
+    - text
+    - user
+id: node.partners.default
+targetEntityType: node
+bundle: partners
+mode: default
+content:
+  field_about_business:
+    weight: 102
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_business_logo:
+    weight: 101
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_days_valid:
+    weight: 108
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_reward_image:
+    weight: 105
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_terms_and_conditions:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_voucher_code:
+    weight: 106
+    label: hidden
+    settings:
+      sanitized: true
+      cache_unit: -1
+      cache_duration: 1
+    third_party_settings: {  }
+    type: computed_string
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

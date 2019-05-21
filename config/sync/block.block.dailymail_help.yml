@@ -1,0 +1,22 @@
+uuid: d2407eaf-860e-4eb6-95fc-916afcef18bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - dailymail
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: dailymail_help
+theme: dailymail
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

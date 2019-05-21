@@ -1,0 +1,22 @@
+uuid: c78ace8b-73b4-4e11-bb39-dbfeb065f7f5
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dailymail
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: dailymail_messages
+theme: dailymail
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

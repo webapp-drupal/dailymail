@@ -1,0 +1,62 @@
+uuid: 8df64c53-b09a-46e5-a860-3bb87a6d44c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.partners.field_about_business
+    - field.field.node.partners.field_business_logo
+    - field.field.node.partners.field_reward_image
+    - field.field.node.partners.field_voucher_code
+    - node.type.partners
+  module:
+    - computed_field
+    - image
+    - text
+    - user
+id: node.partners.full
+targetEntityType: node
+bundle: partners
+mode: full
+content:
+  field_about_business:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_business_logo:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_reward_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_voucher_code:
+    type: computed_string
+    weight: 5
+    region: content
+    label: above
+    settings:
+      sanitized: '1'
+      cache_unit: '0'
+      cache_duration: '1'
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

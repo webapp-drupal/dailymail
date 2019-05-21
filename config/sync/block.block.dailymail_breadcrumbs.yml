@@ -1,0 +1,22 @@
+uuid: 366ac027-93c7-403f-9786-ce677a6b6feb
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dailymail
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: dailymail_breadcrumbs
+theme: dailymail
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

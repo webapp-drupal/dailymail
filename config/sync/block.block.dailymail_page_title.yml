@@ -1,0 +1,27 @@
+uuid: eb47ddbf-3330-4c63-99c7-fd369215e073
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - dailymail
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: dailymail_page_title
+theme: dailymail
+region: content
+weight: -4
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /claim-coffee
+    negate: false
+    context_mapping: {  }

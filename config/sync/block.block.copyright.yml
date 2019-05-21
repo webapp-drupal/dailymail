@@ -1,0 +1,25 @@
+uuid: 8a70510e-59d0-477f-a0d6-80278288399f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:3dc48356-d719-41c0-b1c1-24e25e985715'
+  module:
+    - block_content
+  theme:
+    - dailymail
+id: copyright
+theme: dailymail
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:3dc48356-d719-41c0-b1c1-24e25e985715'
+settings:
+  id: 'block_content:3dc48356-d719-41c0-b1c1-24e25e985715'
+  label: Copyright
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

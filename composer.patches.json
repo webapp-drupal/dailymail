@@ -1,0 +1,7 @@
+{
+  "patches": {
+    "drupal/core": {
+      "Set the expiration of a key/value pair from the PrivateTempStore": "https://www.drupal.org/files/issues/2019-04-11/2928639-19.patch"
+    }
+  }
+}

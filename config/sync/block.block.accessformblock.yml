@@ -1,0 +1,26 @@
+uuid: 7f080738-38b3-48b9-be2d-92914ba2ccbd
+langcode: en
+status: true
+dependencies:
+  module:
+    - pin_codes
+    - system
+  theme:
+    - dailymail
+id: accessformblock
+theme: dailymail
+region: content
+weight: 0
+provider: null
+plugin: access_form_block
+settings:
+  id: access_form_block
+  label: 'Access form block'
+  provider: pin_codes
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

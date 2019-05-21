@@ -1,0 +1,21 @@
+uuid: 3a2624cf-ce64-44bf-b18a-8557ba92cf96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_terms_and_conditions
+    - node.type.partners
+  module:
+    - text
+id: node.partners.field_terms_and_conditions
+field_name: field_terms_and_conditions
+entity_type: node
+bundle: partners
+label: 'Terms and Conditions'
+description: 'That terms and conditions goes for the Voucher'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

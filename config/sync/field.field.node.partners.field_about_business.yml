@@ -1,0 +1,21 @@
+uuid: feb3c673-3871-4183-8331-ed2e57e80c67
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_about_business
+    - node.type.partners
+  module:
+    - text
+id: node.partners.field_about_business
+field_name: field_about_business
+entity_type: node
+bundle: partners
+label: 'About Business'
+description: 'Shortly about Business this is displayed on partners page'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

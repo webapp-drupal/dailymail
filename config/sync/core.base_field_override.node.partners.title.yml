@@ -1,0 +1,18 @@
+uuid: f203a50f-bf5b-4e09-8ad1-2d3633d91c92
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.partners
+id: node.partners.title
+field_name: title
+entity_type: node
+bundle: partners
+label: 'Business Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,15 @@
+uuid: 55c48111-8925-44bc-9cf6-0dcbde36fa75
+langcode: en
+status: true
+dependencies: {  }
+name: 1400x300
+label: 1400X300
+effects:
+  98ff9685-9a1c-4d86-b5b5-d37c2e4c0525:
+    uuid: 98ff9685-9a1c-4d86-b5b5-d37c2e4c0525
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1400
+      height: 300
+      anchor: center-center

@@ -1,0 +1,23 @@
+uuid: 9bfe01c6-9d69-4bd3-ba35-7fd851f19bd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_days_valid
+    - node.type.partners
+id: node.partners.field_days_valid
+field_name: field_days_valid
+entity_type: node
+bundle: partners
+label: 'Days Valid'
+description: 'The number of days voucher is valid after claiming'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 365
+  prefix: ''
+  suffix: ''
+field_type: integer

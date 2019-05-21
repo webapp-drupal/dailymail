@@ -1,0 +1,14 @@
+uuid: 67a76a76-3751-4901-8241-90c1d887f416
+name: 'Dailymail Coffee'
+mail: info@webapp-solutions.co.uk
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

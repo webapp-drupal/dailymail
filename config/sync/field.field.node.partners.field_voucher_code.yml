@@ -1,0 +1,24 @@
+uuid: 54a33382-45e1-4463-b61d-f0ba26ffbf05
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_voucher_code
+    - node.type.partners
+  module:
+    - computed_field
+id: node.partners.field_voucher_code
+field_name: field_voucher_code
+entity_type: node
+bundle: partners
+label: 'Voucher Code'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings:
+  code: '$value = '''';'
+field_type: computed_string

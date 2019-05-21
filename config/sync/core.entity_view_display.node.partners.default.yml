@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.partners.field_about_business
+    - field.field.node.partners.field_barcode_image
     - field.field.node.partners.field_business_logo
     - field.field.node.partners.field_days_valid
     - field.field.node.partners.field_reward_image
@@ -26,6 +27,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_barcode_image:
+    weight: 109
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
     region: content
   field_business_logo:
     weight: 101
@@ -65,9 +75,9 @@ content:
     weight: 106
     label: hidden
     settings:
-      sanitized: true
-      cache_unit: -1
-      cache_duration: 1
+      cache_unit: '-1'
+      cache_duration: '1'
+      sanitized: 0
     third_party_settings: {  }
     type: computed_string
     region: content
@@ -76,4 +86,7 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true

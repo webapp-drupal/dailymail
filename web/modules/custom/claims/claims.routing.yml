@@ -28,7 +28,7 @@ claims.print_claim:
     _controller: '\Drupal\claims\Controller\ClaimVoucherController::print'
     _title: 'Print Voucher'
   requirements:
-    _custom_access: '\Drupal\pin_codes\Access\PartnersPageAccess::access'
+    _access: 'TRUE'
 
 claims.claims_report:
   path: '/claims/voucherUsage/{nid}'

@@ -24,7 +24,7 @@ mode: full
 content:
   field_about_business:
     weight: 3
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
@@ -51,14 +51,14 @@ content:
     type: text_default
     weight: 5
     region: content
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
   field_voucher_code:
     type: computed_string
     weight: 4
     region: content
-    label: above
+    label: hidden
     settings:
       sanitized: '1'
       cache_unit: '0'

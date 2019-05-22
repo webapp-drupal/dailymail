@@ -66,15 +66,55 @@ class ClaimVoucherController extends ControllerBase {
     $tempstore = $this->userPrivateTempstore->get('claims');
     $partner_nid = $tempstore->get('partner');
     $partner_node = $this->entityTypeManager->getStorage('node')->load($partner_nid);
+
+    // Get user private temp store and get the pin code
+    $tempstore = $this->userPrivateTempstore->get('pin_codes');
+    $pin_code = $tempstore->get('pin_code');
+
+    $voucher_code = $this->getVoucherCode($partner_node);
+
+    // Load the node and get the voucher code and days voucher is valid for
+    $num_days = !empty($partner_node->get('field_days_valid')->value) ? $partner_node->get('field_days_valid')->value : '0';
+    $days_valid = '+' . $num_days . ' days';
+
+    $days_valid_time = strtotime($days_valid, time());
+
+    // Set voucher code as used
+    $queryString = "UPDATE {claim_codes} SET pin_code = :pin_code, used = 1, claim_date = :claim_date, voucher_expire = :voucher_expire WHERE voucher_code = :voucher_code";
+
+    $query = $this->database->query($queryString, [':pin_code' => $pin_code, ':claim_date' => time(), ':voucher_expire' => $days_valid_time, ':voucher_code' => $voucher_code]);
+
+    // Set pin code as used
+    $queryString = "UPDATE {pin_codes} SET pin_code_used = 1 WHERE pin_code = :pin_code";
+
+    $query = $this->database->query($queryString, [':pin_code' => $pin_code]);
+
+    // Unset the temporary user data that allow access to claim page
+    $this->userPrivateTempstore->get('claims')->delete('voucher_code');
+    $this->userPrivateTempstore->get('claims')->delete('partner');
+    $this->userPrivateTempstore->get('pin_codes')->delete('pin_code');
+
     $node = $this->entityTypeManager->getViewBuilder('node')->view($partner_node);
 
     return $node;
-    // $rendered = \Drupal::service('renderer')->renderRoot($node);
+  }
 
-    // return [
-    //   '#theme' => 'claim_voucher',
-    //   '#node' => $node['#node'],
-    // ];
+  protected function getVoucherCode($node) {
+    if ($node->field_barcode_image && $node->field_barcode_image->entity) {
+      $voucher_code = 'barcode';
+    }
+    else {
+      $nid = $node->id();
+      $connection = \Drupal::database();
+
+      $query = $connection->query('SELECT voucher_code FROM {claim_codes} WHERE partner = :nid AND used = 0 LIMIT 1', [':nid' => $nid]);
+      $voucher_code = $query->fetchField();
+
+      $tempstore = \Drupal::service('user.private_tempstore')->get('claims');
+      $tempstore->set('voucher_code', $voucher_code, 3600);
+
+      return $voucher_code;
+    }
   }
 
   /**
@@ -103,34 +143,6 @@ class ClaimVoucherController extends ControllerBase {
    *
    */
   public function print($nid) {
-    // Get user private temp store and get the pin code
-    $tempstore = $this->userPrivateTempstore->get('pin_codes');
-    $pin_code = $tempstore->get('pin_code');
-
-    $voucher_code = $this->userPrivateTempstore->get('claims')->get('voucher_code');
-
-    // Load the node and get the voucher code and days voucher is valid for
-    $partner_node = $this->entityTypeManager->getStorage('node')->load($nid);
-    $num_days = !empty($partner_node->get('field_days_valid')->value) ? $partner_node->get('field_days_valid')->value : '0';
-    $days_valid = '+' . $num_days . ' days';
-
-    $days_valid_time = strtotime($days_valid, time());
-
-    // Set voucher code as used
-    $queryString = "UPDATE {claim_codes} SET pin_code = :pin_code, used = 1, claim_date = :claim_date, voucher_expire = :voucher_expire WHERE voucher_code = :voucher_code";
-
-    $query = $this->database->query($queryString, [':pin_code' => $pin_code, ':claim_date' => time(), ':voucher_expire' => $days_valid_time, ':voucher_code' => $voucher_code]);
-
-    // Set pin code as used
-    $queryString = "UPDATE {pin_codes} SET pin_code_used = 1 WHERE pin_code = :pin_code";
-
-    $query = $this->database->query($queryString, [':pin_code' => $pin_code]);
-
-    // Unset the temporary user data that allow access to claim page
-    $this->userPrivateTempstore->get('claims')->delete('voucher_code');
-    $this->userPrivateTempstore->get('claims')->delete('partner');
-    $this->userPrivateTempstore->get('pin_codes')->delete('pin_code');
-
     $url = Url::fromRoute('entity_print.view', ['export_type' => 'pdf', 'entity_type' => 'node', 'entity_id' => $nid])->toString();
     $response = new AjaxResponse();
     $response->addCommand(new RedirectCommand($url));

@@ -35,7 +35,7 @@ display:
           role:
             administrator: administrator
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query

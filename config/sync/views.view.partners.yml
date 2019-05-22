@@ -181,7 +181,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -221,14 +221,14 @@ display:
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 0
+            max_length: 300
             word_boundary: true
             ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
             strip_tags: false
-            trim: false
+            trim: true
             preserve_tags: ''
             html: false
           element_type: ''
@@ -317,7 +317,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"reward-image\">{{ field_reward_image }} </div>\r\n<div class=\"reward-info\">\r\n<p> {{ title }}</p>\r\n<p>{{ field_about_business }}</p>\r\n<p>{{ claim_link_field }} </p>\r\n </div>"
+            text: "<div class=\"reward-image\">{{ field_reward_image }} </div>\r\n<div class=\"reward-info\">\r\n<p class=\"title\"> {{ title }}</p>\r\n<div class=\"description\">{{ field_about_business }}</div>\r\n<p>{{ claim_link_field }} </p>\r\n </div>"
             make_link: false
             path: ''
             absolute: false

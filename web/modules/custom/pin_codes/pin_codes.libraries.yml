@@ -1,0 +1,5 @@
+ajax_commands:
+  js:
+    js/disable.js: {}
+  dependencies:
+    - core/drupal.ajax

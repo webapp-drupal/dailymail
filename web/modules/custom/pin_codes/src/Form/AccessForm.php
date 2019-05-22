@@ -12,6 +12,8 @@ use Drupal\Core\Database\Connection;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\CssCommand;
 use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\Core\Ajax\InvokeCommand;
+use Drupal\pin_codes\Ajax\DisableButtonCommand;
 
 /**
  * Class AccessForm.
@@ -79,6 +81,9 @@ class AccessForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    // Attach our library
+    $form['#attached']['library'][] = 'pin_codes/ajax_commands';
+
     $form['#attributes'] = [
       'class' => ['form-inline']
     ];
@@ -91,7 +96,7 @@ class AccessForm extends FormBase {
       '#weight' => '0',
       '#ajax' => [
         'callback' => [$this, 'validatePinCode'],
-        'event' => 'change',
+        'event' => 'keyup',
         'progress' => [
           'type' => 'throbber',
           'message' => t('Verifying pin code...'),
@@ -107,7 +112,8 @@ class AccessForm extends FormBase {
       '#type' => 'submit',
       '#value' => $this->t('Submit'),
       '#attributes' => [
-        'class' => ['btn btn-black']
+        'class' => ['btn btn-black'],
+        'disabled' => 'disabled'
       ]
     ];
 
@@ -127,17 +133,23 @@ class AccessForm extends FormBase {
 
     $response = new AjaxResponse();
 
-    if (empty($result)) {
+    if (empty($pin)) {
+      return $response;
+    }
+    else if (empty($result)) {
       // set the form error
       $css = ['border' => '2px solid red'];
-      $message = $this->t('Invalid Pincode.');
+      $message = $this->t('Pin Code Not Valid. Please check the pin code.');
       $response->addCommand(new CssCommand('#edit-pin-code', $css));
       $response->addCommand(new HtmlCommand('.pin-invalid-message', $message));
+      $response->addCommand(new DisableButtonCommand('.form-submit'));
     }
     else {
-      $css = ['border' => 'none'];
+      $css = ['border' => '1px solid #ddd'];
+      $message = $this->t('Pin code Valid, please submit.');
       $response->addCommand(new CssCommand('#edit-pin-code', $css));
-      $response->addCommand(new HtmlCommand('.pin-invalid-message', ''));
+      $response->addCommand(new HtmlCommand('.pin-invalid-message', $message));
+      $response->addCommand(new InvokeCommand('.form-submit', 'removeAttr', ['disabled']));
     }
 
     return $response;

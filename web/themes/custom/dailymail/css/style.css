@@ -4,7 +4,7 @@
 /* COMMON CSS STARTS HERE */
 .btn-black{line-height: 26px;background:#000000;color:aliceblue;letter-spacing:2px;text-decoration:none;font-weight:600;text-transform:uppercase;font-size:14px;height: 40px;padding: 6px 25px;}
 .btn-black:hover, .btn-black:focus{background-color:#fc9e00;color:#131b1f;}
-.input-lg{height: 40px;border-radius: 0;border: 1px solid #ddd !important;padding:9px 15px;font-size:18px;line-height:22px;}
+.input-lg{height: 40px;border-radius: 0;border: 1px solid #ddd; padding:9px 15px;font-size:18px;line-height:22px;}
 .btn, .form-control{border-radius:unset;-webkit-border-radius:unset;}
 
 /***************** HEADER CSS STARTS HERE ***************/

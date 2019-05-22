@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: phpwkhtmltopdf
 settings:
-  orientation: portrait
+  orientation: landscape
   default_paper_size: a4
   username: ''
   password: ''

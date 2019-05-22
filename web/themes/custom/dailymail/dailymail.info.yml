@@ -9,5 +9,5 @@ libraries:
 
 entity_print:
   node:
-    partners: 'dailymail/print-styling'
+    all: 'dailymail/print-styling'
 #base theme: bartik

@@ -2,10 +2,13 @@
 /* CSS Document */
 
 /* COMMON CSS STARTS HERE */
+.clearfix{clear: both;}
 .btn-black{line-height: 26px;background:#000000;color:aliceblue;letter-spacing:2px;text-decoration:none;font-weight:600;text-transform:uppercase;font-size:14px;height: 40px;padding: 6px 25px;}
 .btn-black:hover, .btn-black:focus{background-color:#fc9e00;color:#131b1f;}
 .input-lg{height: 40px;border-radius: 0;border: 1px solid #ddd; padding:9px 15px;font-size:18px;line-height:22px;}
 .btn, .form-control{border-radius:unset;-webkit-border-radius:unset;}
+.error-message {color: #D8000C;background-color: #FFBABA;padding: 15px;margin: 0 0 20px;border-radius: 4px;}
+.error-message::before {content: "x";font-size: 15px;background: #D8000C;color: #fff;width: 18px;height: 18px;display: inline-block;float: left;margin-right: 14px;  text-align: center;line-height: 16px;border-radius: 50%;}
 
 /***************** HEADER CSS STARTS HERE ***************/
 .header{border-bottom:solid 1px #c3c3c3;margin:40px 0; width: 100%;float:left;}
@@ -64,7 +67,7 @@
 .bordered .title{font-size: 30px;line-height: 36px;text-transform: uppercase;font-weight: 600;margin: 20px 0;}
 .bordered .voucher-code{margin:40px 0 20px; }
 .bordered .voucher-code span {min-width: 340px;display: inline-block;border: solid 2px black; padding: 15px 40px;font-size: 36px;line-height: 40px;text-transform: uppercase;font-weight:400;}
-.voucher-image img{width: 100%;height: auto;object-fit: cover; margin: 0 0 25px;}
+.voucher-image img{width: 100%;height: auto; max-height: 350px; object-fit: cover; margin: 0 0 25px;}
 .validity{font-size:24px;line-height: 30px;text-transform: uppercase;font-weight: 600;margin:0;}
 .terms{margin: 20px 0;text-align: left;font-size: 14px;font-weight: 600;line-height: 24px;}
 .terms ol{padding:0 0 0 20px;}

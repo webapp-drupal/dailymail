@@ -94,15 +94,15 @@ class AccessForm extends FormBase {
       '#maxlength' => 15,
       '#size' => 15,
       '#weight' => '0',
-      '#ajax' => [
-        'callback' => [$this, 'validatePinCode'],
-        'event' => 'keyup',
-        'progress' => [
-          'type' => 'throbber',
-          'message' => t('Verifying pin code...'),
-        ]
-      ],
-      '#suffix' => '<span class="pin-invalid-message"></span>',
+      // '#ajax' => [
+      //   'callback' => [$this, 'validatePinCode'],
+      //   'event' => 'keyup',
+      //   'progress' => [
+      //     'type' => 'throbber',
+      //     'message' => t('Verifying pin code...'),
+      //   ]
+      // ],
+      // '#suffix' => '<span class="pin-invalid-message"></span>',
       '#attributes' => [
         'class' => ['input-lg']
       ]
@@ -113,7 +113,7 @@ class AccessForm extends FormBase {
       '#value' => $this->t('Submit'),
       '#attributes' => [
         'class' => ['btn btn-black'],
-        'disabled' => 'disabled'
+        // 'disabled' => 'disabled'
       ]
     ];
 
@@ -168,7 +168,7 @@ class AccessForm extends FormBase {
     $result = $query->fetchField();
 
     if (empty($result)) {
-      $form_state->setErrorByName('pin_code', "Invalid PIn code");
+      $form_state->setErrorByName('pin_code', "Sorry - your Unique Claim is not recognised.   Please check and try again.  If you continue to experience problems, please  contact us on 0330 100 0601, 9am-6pm.");
     }
 
   }

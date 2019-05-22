@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: dompdf
 settings:
-  orientation: portrait
+  orientation: landscape
   default_paper_size: letter
   username: ''
   password: ''

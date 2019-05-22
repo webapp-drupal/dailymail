@@ -6,7 +6,20 @@
   </head>
   <body>
     <div class="page">
-      {{ content }}
+      <div class="bordered">
+        <div class="logo">{{ site_logo }}</div>
+        <div class="business-logo">{{ field_business_logo }}</div>
+        <div class="title">Your free coffee</div>
+        <div class="voucher-image"> {{ field_reward_image }}</div>
+        <div class="validity">This voucher must be provided by {{ validity }}</div>
+        <div class="voucher-code"><span>{{ voucher_code }}</span></div>
+      </div>
+      <div class="terms">
+        <label>Terms and conditions:</label>
+        <div class="terms-content">
+          {{ field_terms_and_conditions }}
+        </div>
+      </div>
     </div>
   </body>
 </html>

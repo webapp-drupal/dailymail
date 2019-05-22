@@ -171,6 +171,49 @@ function dailymail_preprocess_menu_local_task(array &$variables) {
 /**
  * Implements hook_preprocess_HOOK() for views templates.
  */
+function dailymail_preprocess_status_messages(&$variables) {
+  $variables['attributes']['class'] = [key($variables['message_list']) . '-message'];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for views templates.
+ */
 function dailymail_preprocess_views_view(&$variables) {
   $variables['attributes']['id'] = 'partners-view';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for views templates.
+ */
+function dailymail_preprocess_entity_print(&$variables) {
+  $variables['site_logo'] = [
+    '#theme' => 'image',
+    '#uri' => theme_get_setting('logo.url'),
+    '#alt' => t('Home'),
+  ];
+
+  $node = isset($variables['content'][0]['#node']) ? $variables['content'][0]['#node'] : $variables['content'][0][0]['#node'];
+
+  $num_days = !empty($node->get('field_days_valid')->value) ? $node->get('field_days_valid')->value : '0';
+  $days_valid = '+' . $num_days . ' days';
+  $days_valid_time = strtotime($days_valid, time());
+  $validity = date('d.m.y', $days_valid_time);
+  $variables['validity'] = $validity;
+
+  $display_options = [
+    'label' => 'hidden'
+  ];
+
+  $variables['field_business_logo'] = $node->field_business_logo->view($display_options);
+  $variables['field_reward_image'] = $node->field_reward_image->view($display_options);
+  $variables['field_terms_and_conditions'] = $node->field_terms_and_conditions->view($display_options);
+
+  $tempstore = \Drupal::service('user.private_tempstore')->get('claims');
+
+  if ($node->field_barcode_image && $node->field_barcode_image->entity) {
+    $variables['voucher_image'] = $node->field_barcode_image->view($display_options);
+  }
+  else {
+    $variables['voucher_code'] = $tempstore->get('voucher_code');
+  }
 }

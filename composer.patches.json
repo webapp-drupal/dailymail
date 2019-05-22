@@ -2,6 +2,9 @@
   "patches": {
     "drupal/core": {
       "Set the expiration of a key/value pair from the PrivateTempStore": "https://www.drupal.org/files/issues/2019-04-11/2928639-19.patch"
+    },
+    "drupal/entity_print": {
+      "PDF generation errors with DomPDF due to drupalSettings": "https://www.drupal.org/files/issues/2018-05-03/entity_print-dompdf-2969184.patch"
     }
   }
 }

@@ -44,8 +44,18 @@ function claims_preprocess_node(&$variables) {
     'label' => 'hidden'
   ];
 
-  if ($node->field_barcode_image) {
-    $variables['voucher_code'] = $node->field_barcode_image->view($display_options);
+  if ($node->field_barcode_image && $node->field_barcode_image->entity) {
+    $variables['voucher_image'] = $node->field_barcode_image->view($display_options);
+  }
+  else {
+    $nid = $node->id();
+    $connection = \Drupal::database();
+
+    $query = $connection->query('SELECT voucher_code FROM {claim_codes} WHERE partner = :nid AND used = 0 LIMIT 1', [':nid' => $nid]);
+    $variables['voucher_code'] = $query->fetchField();
+
+    $tempstore = \Drupal::service('user.private_tempstore')->get('claims');
+    $tempstore->set('voucher_code', $variables['voucher_code'], 3600);
   }
 }
 

@@ -90,8 +90,8 @@ class ClaimVoucherController extends ControllerBase {
     $query = $this->database->query($queryString, [':pin_code' => $pin_code]);
 
     // Unset the temporary user data that allow access to claim page
-    $this->userPrivateTempstore->get('claims')->delete('voucher_code');
-    $this->userPrivateTempstore->get('claims')->delete('partner');
+    // $this->userPrivateTempstore->get('claims')->delete('voucher_code');
+    // $this->userPrivateTempstore->get('claims')->delete('partner');
     $this->userPrivateTempstore->get('pin_codes')->delete('pin_code');
 
     $node = $this->entityTypeManager->getViewBuilder('node')->view($partner_node);
@@ -112,9 +112,9 @@ class ClaimVoucherController extends ControllerBase {
 
       $tempstore = \Drupal::service('user.private_tempstore')->get('claims');
       $tempstore->set('voucher_code', $voucher_code, 3600);
-
-      return $voucher_code;
     }
+
+    return $voucher_code;
   }
 
   /**

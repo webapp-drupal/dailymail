@@ -204,8 +204,14 @@ function dailymail_preprocess_entity_print(&$variables) {
     'label' => 'hidden'
   ];
 
+  $reward_image = $render = [
+    '#theme' => 'image_style',
+    '#style_name' => 'thumbnail',
+    '#uri' => $node->field_reward_image->entity->getFileUri(),
+  ];
+
   $variables['field_business_logo'] = $node->field_business_logo->view($display_options);
-  $variables['field_reward_image'] = $node->field_reward_image->view($display_options);
+  $variables['field_reward_image'] = $reward_image;
   $variables['field_terms_and_conditions'] = $node->field_terms_and_conditions->view($display_options);
 
   $tempstore = \Drupal::service('user.private_tempstore')->get('claims');

@@ -53,7 +53,6 @@ function claims_preprocess_node(&$variables) {
     else {
       $tempstore = \Drupal::service('user.private_tempstore')->get('claims');
       $variables['voucher_code'] = $tempstore->get('voucher_code');
-      \Drupal::logger('claims_preprocess_node')->notice('<pre>@type</pre>', array('@type' => print_r($tempstore->get('voucher_code'), TRUE)));
     }
   }
 }

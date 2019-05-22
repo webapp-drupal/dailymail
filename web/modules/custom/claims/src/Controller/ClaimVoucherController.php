@@ -116,10 +116,15 @@ class ClaimVoucherController extends ControllerBase {
 
     $days_valid_time = strtotime($days_valid, time());
 
+    // Set voucher code as used
     $queryString = "UPDATE {claim_codes} SET pin_code = :pin_code, used = 1, claim_date = :claim_date, voucher_expire = :voucher_expire WHERE voucher_code = :voucher_code";
 
-
     $query = $this->database->query($queryString, [':pin_code' => $pin_code, ':claim_date' => time(), ':voucher_expire' => $days_valid_time, ':voucher_code' => $voucher_code]);
+
+    // Set pin code as used
+    $queryString = "UPDATE {pin_codes} SET pin_code_used = 1 WHERE pin_code = :pin_code";
+
+    $query = $this->database->query($queryString, [':pin_code' => $pin_code]);
 
     // Unset the temporary user data that allow access to claim page
     $this->userPrivateTempstore->get('claims')->delete('voucher_code');

@@ -1,0 +1,7 @@
+uuid: c56064fb-1e74-4af8-aa1c-af5f1c808b83
+langcode: en
+status: true
+dependencies: {  }
+name: voucher_image_
+label: 'Voucher image '
+effects: {  }

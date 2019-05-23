@@ -1,0 +1,25 @@
+uuid: dec995b4-2238-46df-a553-cf9ba57860f7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:cbd9c665-482a-4691-a525-7268c4985d3a'
+  module:
+    - block_content
+  theme:
+    - dailymail
+id: chat
+theme: dailymail
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:cbd9c665-482a-4691-a525-7268c4985d3a'
+settings:
+  id: 'block_content:cbd9c665-482a-4691-a525-7268c4985d3a'
+  label: Chat
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

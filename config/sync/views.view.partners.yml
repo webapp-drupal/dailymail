@@ -377,22 +377,21 @@ display:
           entity_field: type
           plugin_id: bundle
       sorts:
-        created:
-          id: created
+        title:
+          id: title
           table: node_field_data
-          field: created
-          order: DESC
-          entity_type: node
-          entity_field: created
-          plugin_id: date
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
+          order: DESC
           exposed: false
           expose:
             label: ''
-          granularity: second
-      title: Partners
+          entity_type: node
+          entity_field: title
+          plugin_id: standard
+      title: 'Cafes and Restaurants'
       header: {  }
       footer: {  }
       empty: {  }

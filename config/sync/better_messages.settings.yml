@@ -4,19 +4,41 @@ horizontal: 10
 fixed: 1
 width: 400px
 autoclose: 0
-opendelay: 0.3
+opendelay: !!float 0
 disable_autoclose: 0
 show_countdown: 1
 hover_autoclose: 1
 popin:
   effect: fadeIn
-  duration: slow
+  duration: fast
 popout:
-  effect: fadeOut
+  effect: fadeIn
   duration: slow
 jquery_ui:
   draggable: 1
   resizable: 0
-visibility: {  }
+visibility:
+  message_type:
+    id: message_type
+    message_types: {  }
+    negate: false
+    context_mapping:
+      better_messages: '@better_messages.context:better_messages'
+  node_type:
+    id: node_type
+    bundles: {  }
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: ''
+    negate: false
+  user_role:
+    id: user_role
+    roles: {  }
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
 _core:
   default_config_hash: Pw2ELXqyW0bEUY_MdnD9pok5eWjoA2FutauHW4wzHbQ

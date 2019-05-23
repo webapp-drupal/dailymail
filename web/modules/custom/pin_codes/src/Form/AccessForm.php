@@ -162,13 +162,28 @@ class AccessForm extends FormBase {
     parent::validateForm($form, $form_state);
     $pin = $form_state->getValue('pin_code');
 
+    // if (strlen($pin) != 11) {
+    //   $form_state->setErrorByName('pin_code', "Your Unique Claim code should be 11 digits, with no space either side.  If you continue to experience problems, press the “Need Help” button at the bottom of the screen");
+    //
+    //   return;
+    // }
+
     // Look for the pin in our custom table
     $queryString = 'SELECT * FROM {pin_codes} WHERE BINARY pin_code = :pin_code AND pin_code_used = 0';
     $query = $this->database->query($queryString, [':pin_code' => $pin]);
     $result = $query->fetchField();
 
     if (empty($result)) {
-      $form_state->setErrorByName('pin_code', "Sorry - your Unique Claim is not recognised.   Please check and try again.  If you continue to experience problems, please  contact us on 0330 100 0601, 9am-6pm.");
+      $queryString = 'SELECT pin_code_used FROM {pin_codes} WHERE BINARY pin_code = :pin_code';
+      $query = $this->database->query($queryString, [':pin_code' => $pin]);
+      $result = $query->fetchField();
+
+      if ($result) {
+        $form_state->setErrorByName('pin_code', "Sorry, this Unique Claim Code has already been used.  If you continue to experience problems, press the “Need Help” button at the bottom right of the screen");
+      }
+      else {
+        $form_state->setErrorByName('pin_code', "Sorry - your Unique Claim Code is not recognised.   If you continue to experience problems, press the “Need Help” button at the bottom right of the screen");
+      }
     }
 
   }

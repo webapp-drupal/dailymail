@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.partners.field_use_voucher_image
     - field.field.node.partners.field_voucher_code
     - field.field.node.partners.field_voucher_image
+    - field.field.node.partners.field_weight
     - image.style.thumbnail
     - node.type.partners
   module:
@@ -19,6 +20,7 @@ dependencies:
     - image
     - path
     - text
+    - weight
 id: node.partners.default
 targetEntityType: node
 bundle: partners
@@ -97,6 +99,12 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_weight:
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+    type: weight_selector
     region: content
   path:
     type: path

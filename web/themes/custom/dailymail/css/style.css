@@ -21,6 +21,7 @@ article {min-height:660px;}
 .header .navbar-nav > li > a {color: #000000;font-size: 16px;}
 .header .navbar-nav > li > a:focus, .header .navbar-nav > li > a:hover{background:none;text-decoration:underline;}
 .llm2 {padding: 0 22px;font-size: 1.5em;}
+.node-15 #block-dailymail-content article img {position: relative;width: 100%;object-fit: cover;}
 /*************** HEADER CSS ENDS HERE ************/
 
 /***************** HOME PAGE CSS STARTS HERE ****************/

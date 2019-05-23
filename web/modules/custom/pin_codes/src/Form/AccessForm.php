@@ -186,7 +186,7 @@ class AccessForm extends FormBase {
         $form_state->setErrorByName('pin_code', "Sorry, this Coffee Code has already been used.  Please check and try again. If you continue to experience problems, please click on the “Need Help” button at the bottom right of your screen.");
       }
       else {
-        $form_state->setErrorByName('pin_code', "Sorry, this Coffee Code is not recognised.  Please check and try again. Your Coffee Code is 11 digits, with no spaces either side.  All alpha characters (letters) in your Coffee Code must be entered in upper case. If you continue to experience problems, please click on the “Need Help” button at the bottom right of your screen.");
+        $form_state->setErrorByName('pin_code', "Sorry, this Coffee Code is not recognised.  Please check and try again. Your Coffee Code is 11 digits, with no spaces either side.  All alpha characters (letters) in your Coffee Code must be entered in UPPER CASE. If you continue to experience problems, please click on the “Need Help” button at the bottom right of your screen.");
       }
     }
 

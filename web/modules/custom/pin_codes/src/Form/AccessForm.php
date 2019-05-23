@@ -162,6 +162,10 @@ class AccessForm extends FormBase {
     parent::validateForm($form, $form_state);
     $pin = $form_state->getValue('pin_code');
 
+    if (time() >= 1559170740) {
+      $form_state->setErrorByName('pin_code', "Sorry, your Coffee Code expired at 23:59 on 29.05.19.   Please refer to the Terms & Conditions section of this website.");
+    }
+
     // if (strlen($pin) != 11) {
     //   $form_state->setErrorByName('pin_code', "Your Unique Claim code should be 11 digits, with no space either side.  If you continue to experience problems, press the “Need Help” button at the bottom of the screen");
     //
@@ -179,10 +183,10 @@ class AccessForm extends FormBase {
       $result = $query->fetchField();
 
       if ($result) {
-        $form_state->setErrorByName('pin_code', "Sorry, this Unique Claim Code has already been used.  If you continue to experience problems, press the “Need Help” button at the bottom right of the screen");
+        $form_state->setErrorByName('pin_code', "Sorry, this Coffee Code has already been used.  Please check and try again. If you continue to experience problems, please click on the “Need Help” button at the bottom right of your screen.");
       }
       else {
-        $form_state->setErrorByName('pin_code', "Sorry - your Unique Claim Code is not recognised.   If you continue to experience problems, press the “Need Help” button at the bottom right of the screen");
+        $form_state->setErrorByName('pin_code', "Sorry, this Coffee Code is not recognised.  Please check and try again. Your Coffee Code is 11 digits, with no spaces either side.  All alpha characters (letters) in your Coffee Code must be entered in upper case. If you continue to experience problems, please click on the “Need Help” button at the bottom right of your screen.");
       }
     }
 

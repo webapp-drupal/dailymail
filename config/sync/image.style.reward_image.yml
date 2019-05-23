@@ -1,0 +1,15 @@
+uuid: 9528600c-b974-4492-a2b4-f8ada5680ae4
+langcode: en
+status: true
+dependencies: {  }
+name: reward_image
+label: 'Reward Image'
+effects:
+  de4b23df-7417-45a0-be9f-84193047225f:
+    uuid: de4b23df-7417-45a0-be9f-84193047225f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 400
+      height: 250
+      anchor: center-center

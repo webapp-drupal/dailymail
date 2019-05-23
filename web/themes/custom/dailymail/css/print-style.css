@@ -9,14 +9,14 @@ body {margin: 0;float: left;width: 100%;display: block;overflow-x: hidden;overfl
 .bordered .logo {text-align: left;padding: 15px 15px 0;}
 .bordered .logo img{max-width: 140px;}
 .bordered .business-logo{text-align: center;margin: 30px 0;padding: 0 15px;}
-.bordered .business-logo img{max-height: 55px;object-fit: contain;max-width: 100%;}
+.bordered .business-logo img{max-height: 55px;object-fit: contain;max-width: 100%;width: auto;}
 .bordered .title{font-size: 30px;line-height: 36px;text-transform: uppercase;font-weight: 600;margin: 20px 0;padding: 0 15px;}
-.voucher-image img{width: 100%;height: auto; max-height: 350px; object-fit: cover; margin: 0 0 25px;}
+.voucher-image img {width: 100%;height: auto; object-fit: cover; margin: 0 0 25px;}
 .bordered .voucher-code{margin:40px 0 20px;padding: 0 15px;}
 .bordered .voucher-code span {min-width: 340px;display: inline-block;border: solid 2px black; padding: 15px 40px;font-size: 36px;line-height: 40px;text-transform: uppercase;font-weight:400;}
 .validity{font-size:18px;line-height: 30px;text-transform: uppercase;font-weight: 600;margin:0;padding: 0 15px;}
 
-.terms{margin:0 0 0 3%;text-align: left;font-size: 14px;font-weight: 600;line-height: 24px;}
+.terms{margin:0 0 0 3%;text-align: left;font-size: 11px;font-weight: 600;line-height: 24px;}
 .terms ol{padding:0 0 0 20px;}
 .terms ol li, .terms p{font-weight: 400;line-height: 20px;}
 

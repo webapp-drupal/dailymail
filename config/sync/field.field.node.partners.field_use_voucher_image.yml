@@ -1,0 +1,23 @@
+uuid: 8363f49f-5c47-4dd4-808b-d5f8b47a095e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_use_voucher_image
+    - node.type.partners
+id: node.partners.field_use_voucher_image
+field_name: field_use_voucher_image
+entity_type: node
+bundle: partners
+label: 'Use voucher image'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

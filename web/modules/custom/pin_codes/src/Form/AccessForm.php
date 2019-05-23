@@ -90,7 +90,7 @@ class AccessForm extends FormBase {
 
     $form['pin_code'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Enter Your Unique Claim Code!'),
+      '#title' => $this->t('ENTER YOUR COFFEE CODE HERE'),
       '#maxlength' => 15,
       '#size' => 15,
       '#weight' => '0',

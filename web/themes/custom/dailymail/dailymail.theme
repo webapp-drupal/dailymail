@@ -99,7 +99,7 @@ function dailymail_preprocess_node(array &$variables) {
   $node = $variables['node'];
 
   if ($node->getType() == 'partners') {
-    $link = Link::createFromRoute(t('Print'), 'claims.print_claim', ['nid' => $node->id()], ['attributes' => ['class' => 'use-ajax']])->toString();
+    $link = Link::createFromRoute(t('Print and Download'), 'claims.print_claim', ['nid' => $node->id()], ['attributes' => ['class' => 'use-ajax']])->toString();
     $variables['print_link'] = $link;
 
     $variables['site_logo'] = [
@@ -114,6 +114,21 @@ function dailymail_preprocess_node(array &$variables) {
     $validity = date('d.m.y', $days_valid_time);
 
     $variables['validity'] = $validity;
+
+    if ($node->get('field_use_voucher_image')->value) {
+      $reward_image_uri = $node->field_voucher_image->entity->getFileUri();
+    }
+    else {
+      $reward_image_uri = $node->field_reward_image->entity->getFileUri();
+    }
+
+    $reward_image = $render = [
+      '#theme' => 'image_style',
+      '#style_name' => 'reward_image',
+      '#uri' => $reward_image_uri,
+    ];
+
+    $variables['reward_image'] = $reward_image;
   }
 }
 
@@ -204,10 +219,17 @@ function dailymail_preprocess_entity_print(&$variables) {
     'label' => 'hidden'
   ];
 
+  if ($node->get('field_use_voucher_image')->value) {
+    $reward_image_uri = $node->field_voucher_image->entity->getFileUri();
+  }
+  else {
+    $reward_image_uri = $node->field_reward_image->entity->getFileUri();
+  }
+
   $reward_image = $render = [
     '#theme' => 'image_style',
-    '#style_name' => 'thumbnail',
-    '#uri' => $node->field_reward_image->entity->getFileUri(),
+    '#style_name' => 'reward_image',
+    '#uri' => $reward_image_uri,
   ];
 
   $variables['field_business_logo'] = $node->field_business_logo->view($display_options);

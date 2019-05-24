@@ -596,7 +596,7 @@ display:
           group_type: group
           admin_label: ''
           label: ID
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -696,7 +696,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           date_format: custom
-          custom_date_format: 'd M Y'
+          custom_date_format: 'd/m/y - H:i'
           timezone: ''
           plugin_id: date
         pin_code:
@@ -1238,7 +1238,7 @@ display:
           group_type: group
           admin_label: ''
           label: ID
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''

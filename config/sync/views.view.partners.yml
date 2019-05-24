@@ -395,7 +395,12 @@ display:
             label: ''
           plugin_id: standard
       title: 'Cafes and Restaurants'
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
       footer: {  }
       empty: {  }
       relationships: {  }
@@ -435,6 +440,7 @@ display:
         sorts: false
         style: false
         row: false
+        header: false
       style:
         type: views_bootstrap_grid
         options:
@@ -450,6 +456,18 @@ display:
       row:
         type: fields
         options: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: "Simply choose which café or restaurant\_you'd like to enjoy your free hot drink with from the selection below, then click “Claim”. A voucher will then appear on your screen for your free hot drink.\_ Simply print or download the voucher or show it from your mobile or tablet, at your selected cafe or restaurant, before the date shown."
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:

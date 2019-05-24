@@ -55,7 +55,7 @@ article {min-height:660px;}
 .reward-info p.title{color: #333; font-size: 30px;font-size: 24px;line-height: 30px;height: 60px;overflow: hidden;margin: 0 0 15px;}
 .reward-info div.description{float: left; width: 100%;display: block;margin: 0 0 15px;}
 .reward-info div.description p{margin: 0;}
-.reward-image img{width: 100%; height: 240px; object-fit: cover;}
+.reward-image img{width: 100%; height: 240px;}
 .reward-info .use-ajax.btn.btn-black {position: absolute;right: 15px;bottom: 20px;}
 
 /***************** CLAIM COFFEE PAGE CSS ENDS HERE ****************/

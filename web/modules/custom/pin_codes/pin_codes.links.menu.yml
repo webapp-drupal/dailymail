@@ -4,3 +4,10 @@ pin_codes.import:
   parent: system.admin_config
   route_name: pin_codes.pin_codes_upload_form
   weight: 100
+
+pin_codes.manage:
+  title: 'Manage Pin codes'
+  description: 'Allows to delete selected or all pin codes'
+  parent: system.admin_config
+  route_name: pin_codes.manage_pincodes_form
+  weight: 100

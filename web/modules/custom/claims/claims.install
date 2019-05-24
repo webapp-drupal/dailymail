@@ -33,18 +33,53 @@ function claims_schema () {
         'default' => 0,
         'size' => 'tiny',
       ],
-      'pin_code' => [
-        'description' => 'Pin code in mixed numbers and letters format',
-        'type' => 'varchar',
-        'length' => 255,
-        'not null' => TRUE,
-      ],
       'used' => [
         'description' => 'Whether the code has been used or not',
         'type' => 'int',
         'not null' => TRUE,
         'default' => 0,
         'size' => 'tiny',
+      ],
+    ],
+    'unique keys' => [
+      'id_voucher_code' => [
+        'id',
+        'voucher_code',
+      ],
+      'voucher_code' => [
+        'voucher_code',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  $schema['claim_codes_report'] = [
+    'description' => 'Stores claimed codes in table for partners',
+    'fields' => [
+      'id' => [
+        'description' => 'primary key record id for pin codes',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'voucher_code' => [
+        'description' => 'Claim code in mixed numbers and letters format',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'partner' => [
+        'description' => 'The partner claim code belongs to',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+      ],
+      'pin_code' => [
+        'description' => 'Pin code in mixed numbers and letters format',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
       ],
       'claim_date' => [
         'description' => 'Date and time the code was used for claim',

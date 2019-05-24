@@ -128,7 +128,7 @@ class UploadClaimCodes extends FormBase {
 
     if ($absolute_path) {
       $partner = $form_state->getValue('partner');
-      $queryString = "LOAD DATA LOCAL INFILE '" . $absolute_path . "' INTO TABLE {claim_codes} FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES (voucher_code) SET used = 0, pin_code = '', claim_date = 0, voucher_expire = 0, partner = " . $partner;
+      $queryString = "LOAD DATA LOCAL INFILE '" . $absolute_path . "' INTO TABLE {claim_codes} FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES (voucher_code) SET used=0, partner = " . $partner;
       $query = $this->database->query($queryString);
 
       $messenger = \Drupal::messenger();

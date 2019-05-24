@@ -13,3 +13,11 @@ pin_codes.access_form:
     _title: 'AccessForm'
   requirements:
     _access: 'TRUE'
+
+pin_codes.manage_pincodes_form:
+  path: 'admin/pincodes/manage'
+  defaults:
+    _form: '\Drupal\pin_codes\Form\ManagePincodesForm'
+    _title: 'Manage Pincodes'
+  requirements:
+    _access: 'TRUE'

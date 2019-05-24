@@ -37,3 +37,11 @@ claims.claims_report:
     _title: 'Partner code usage'
   requirements:
     _role: 'administrator'
+
+claims.manage_partner_codes_form:
+  path: '/admin/manage/partnercodes'
+  defaults:
+    _form: '\Drupal\claims\Form\ManagePartnerCodesForm'
+    _title: 'Manage Partner Codes'
+  requirements:
+    _access: 'TRUE'

@@ -32,8 +32,8 @@ visibility:
       node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: ''
-    negate: false
+    pages: '/admin/*'
+    negate: true
   user_role:
     id: user_role
     roles: {  }

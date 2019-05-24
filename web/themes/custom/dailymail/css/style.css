@@ -72,7 +72,7 @@ article {min-height:660px;}
 .bordered .title{font-size: 30px;line-height: 36px;text-transform: uppercase;font-weight: 600;margin: 20px 0;}
 .bordered .voucher-code{margin:40px 0 20px; }
 .bordered .voucher-code span {min-width: 340px;display: inline-block;border: solid 2px black; padding: 15px 40px;font-size: 36px;line-height: 40px;text-transform: uppercase;font-weight:400;}
-.bordered .voucher-image img{width: 100%;height: auto; max-height: 350px; object-fit: cover; margin: 0 0 25px;}
+.bordered .voucher-image img{width: 100%;height: auto; max-height: 350px; margin: 0 0 25px;}
 .bordered .validity{font-size:24px;line-height: 30px;text-transform: uppercase;font-weight: 600;margin:0;}
 .bordered .single-use{font-size:24px;line-height: 30px;text-transform: uppercase;font-weight: 700;margin:0;}
 .terms{margin: 20px 0;text-align: left;font-size: 14px;font-weight: 600;line-height: 24px;}

@@ -10,6 +10,7 @@ use Drupal\Core\Database\Driver\mysql\Connection;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\RedirectCommand;
+use Drupal\Core\Ajax\PrependCommand;
 use Drupal\Core\Url;
 
 /**
@@ -139,7 +140,34 @@ class ClaimVoucherController extends ControllerBase {
     // Set the partner nid to store for showing on claim voucher page
     $tempstore->set('partner', $nid, 3600);
 
+    // check if given partner has voucher code
+    $connection = \Drupal::database();
+    $query = $connection->query('SELECT voucher_code FROM {claim_codes} WHERE partner = :nid AND used = 0 LIMIT 1', [':nid' => $nid]);
+    $voucher_code = $query->fetchField();
+
     $response = new AjaxResponse();
+
+    if (empty($voucher_code)) {
+      $messenger = \Drupal::messenger();
+      $messenger->addMessage('We’re sorry – there seems to be a temporary error.  Please try again shortly.  Thank you.', $messenger::TYPE_ERROR);
+
+      $status_messages = array('#type' => 'status_messages');
+      $messages = \Drupal::service('renderer')->renderRoot($status_messages);
+
+      $status_messages = [
+        '#theme' => 'better_messages_wrapper',
+        '#children' => $messages,
+      ];
+
+      $messages = \Drupal::service('renderer')->renderRoot($status_messages);
+
+      if (!empty($messages)) {
+        $response->addCommand(new PrependCommand('#views-bootstrap-partners-page-1', $messages));
+      }
+
+      return $response;
+    }
+
     $response->addCommand(new RedirectCommand('/claim-voucher'));
 
     return $response;

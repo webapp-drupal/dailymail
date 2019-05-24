@@ -1,43 +1,37 @@
-
 <div class="wrapper">
   <div class="container container-fix">
     <nav class="header">
-
       {% if page.header %}
-
         {{page.header}}
-
       {% endif %}
-      <div class="hidden-xs hidden-sm">
-            {% if page.primary_menu %}
 
-              {{ page.primary_menu }}
+      <div class="main-menu-container">
+        <button class="navbar-toggler">
+          <span class="closed">
+            <i class="fas fa-bars fa-1x"></i>
+          </span>
+          <span class="open">
+            <i class="fas fa-times fa-1x"></i>
+          </span>
+        </button>
 
-            {% endif %}
-            <!--showing on large-->
-      </div>
-      <div class="hidden-lg">
-            {% if page.primary_menu %}
-
-              {{ page.primary_menu }}
-
-            {% endif %}
-            <!--not showing on large -->
+        <div class="menu-items">
+          {% if page.primary_menu %}
+            {{ page.primary_menu }}
+          {% endif %}
+        </div>
+        <!--not showing on large -->
       </div>
     </nav>
 
     <div class="clearfix"></div>
 
-          {{ page.content }}
+    {{ page.content }}
 
-
-     <footer>
-          {% if page.footer %}
-            {{ page.footer }}
-          {% endif %}
-     </footer>
+    <footer>
+      {% if page.footer %}
+      {{ page.footer }}
+      {% endif %}
+    </footer>
   </div>
-
-
-
 </div>

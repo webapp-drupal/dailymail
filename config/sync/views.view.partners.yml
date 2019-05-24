@@ -8,6 +8,7 @@ dependencies:
     - field.storage.node.field_weight
     - image.style.480x320
     - node.type.partners
+    - system.menu.footer
     - user.role.administrator
   module:
     - claims
@@ -468,6 +469,16 @@ display:
           tokenize: false
           content: "Simply choose which café or restaurant\_you'd like to enjoy your free hot drink with from the selection below, then click “Claim”. A voucher will then appear on your screen for your free hot drink.\_ Simply print or download the voucher or show it from your mobile or tablet, at your selected cafe or restaurant, before the date shown."
           plugin_id: text_custom
+      menu:
+        type: normal
+        title: ' To the claim page'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 50
+        context: '0'
+        menu_name: footer
+        enabled: true
     cache_metadata:
       max-age: -1
       contexts:

@@ -11,7 +11,7 @@ dependencies:
 id: copyright
 theme: dailymail
 region: footer
-weight: 0
+weight: -4
 provider: null
 plugin: 'block_content:3dc48356-d719-41c0-b1c1-24e25e985715'
 settings:

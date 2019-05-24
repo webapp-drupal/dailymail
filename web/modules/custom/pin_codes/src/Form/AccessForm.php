@@ -163,7 +163,7 @@ class AccessForm extends FormBase {
     $pin = $form_state->getValue('pin_code');
 
     if (time() >= 1559170740) {
-      $form_state->setErrorByName('pin_code', "Sorry, your Coffee Code expired at 23:59 on 29.05.19.   Please refer to the Terms & Conditions section of this website.");
+      $form_state->setErrorByName('pin_code', "Sorry, your Coffee Code expired at 23:59 on 29.05.19. Please refer to the Terms & Conditions section of this website.");
     }
 
     // if (strlen($pin) != 11) {

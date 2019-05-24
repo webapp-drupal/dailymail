@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - block_scheduler
     - pin_codes
     - system
   theme:
@@ -22,5 +23,11 @@ visibility:
   request_path:
     id: request_path
     pages: '<front>'
+    negate: false
+    context_mapping: {  }
+  expiry:
+    id: expiry
+    start: ''
+    end: 1559170799
     negate: false
     context_mapping: {  }

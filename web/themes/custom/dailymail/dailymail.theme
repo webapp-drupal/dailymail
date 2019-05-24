@@ -101,8 +101,11 @@ function dailymail_preprocess_node(array &$variables) {
   $node = $variables['node'];
 
   if ($node->getType() == 'partners') {
-    $link = Link::createFromRoute(t('Print and Download'), 'claims.print_claim', ['nid' => $node->id()], ['attributes' => ['class' => 'use-ajax']])->toString();
-    $variables['print_link'] = $link;
+    $print = Link::createFromRoute(t('Print'), 'claims.print_claim', ['nid' => $node->id()], ['attributes' => ['class' => 'use-ajax btn btn-black']])->toString();
+    $download = Link::createFromRoute(t('Download'), 'claims.print_claim', ['nid' => $node->id()], ['attributes' => ['class' => 'use-ajax btn btn-black']])->toString();
+
+    $variables['print_link'] = $print;
+    $variables['download_link'] = $download;
 
     $variables['site_logo'] = [
       '#theme' => 'image',

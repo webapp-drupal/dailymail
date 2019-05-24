@@ -71,7 +71,8 @@
  */
 #}
 <article{{ attributes }}>
-  <div class="print-link"><span>{{ print_link }}</span></div>
+  <div class="print-link"><span>{{ print_link }} {{ download_link }}</span></div>
+  <!-- <div class="download-link"><span></span></div> -->
   <div class="bordered">
     <div class="logo">{{ site_logo }}</div>
     <div class="business-logo">{{ content.field_business_logo }}</div>

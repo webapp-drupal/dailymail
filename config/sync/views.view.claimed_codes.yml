@@ -2,6 +2,8 @@ uuid: b9deb847-17b4-4d36-8392-89a5a2604cb0
 langcode: en
 status: true
 dependencies:
+  config:
+    - system.menu.admin
   module:
     - better_exposed_filters
     - claims
@@ -680,6 +682,15 @@ display:
     display_options:
       display_extenders: {  }
       path: admin/reports/claims
+      menu:
+        type: normal
+        title: 'Claims report'
+        description: ''
+        expanded: false
+        parent: system.admin_reports
+        weight: 52
+        context: '0'
+        menu_name: admin
     cache_metadata:
       max-age: -1
       contexts:

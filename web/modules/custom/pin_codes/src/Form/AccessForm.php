@@ -162,16 +162,6 @@ class AccessForm extends FormBase {
     parent::validateForm($form, $form_state);
     $pin = $form_state->getValue('pin_code');
 
-    if (time() >= 1559170740) {
-      $form_state->setErrorByName('pin_code', "Sorry, your Coffee Code expired at 23:59 on 29.05.19. Please refer to the Terms & Conditions section of this website.");
-    }
-
-    // if (strlen($pin) != 11) {
-    //   $form_state->setErrorByName('pin_code', "Your Unique Claim code should be 11 digits, with no space either side.  If you continue to experience problems, press the “Need Help” button at the bottom of the screen");
-    //
-    //   return;
-    // }
-
     // Look for the pin in our custom table
     $queryString = 'SELECT * FROM {pin_codes} WHERE BINARY pin_code = :pin_code AND pin_code_used = 0';
     $query = $this->database->query($queryString, [':pin_code' => $pin]);

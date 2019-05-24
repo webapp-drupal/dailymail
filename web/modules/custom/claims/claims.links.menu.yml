@@ -4,3 +4,10 @@ claims.import_codes:
   parent: system.admin_config
   route_name: claims.upload_claim_codes
   weight: 100
+
+claims.manage:
+  title: 'Manage Claim codes'
+  description: 'Delete claim codes'
+  parent: system.admin_config
+  route_name: claims.manage_partner_codes_form
+  weight: 100

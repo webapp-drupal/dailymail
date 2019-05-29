@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_image_page
+    - field.field.node.page.field_mobile_image
     - image.style.thumbnail
     - node.type.page
   module:
@@ -35,6 +36,14 @@ content:
     third_party_settings: {  }
   field_image_page:
     weight: 121
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_mobile_image:
+    weight: 122
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail

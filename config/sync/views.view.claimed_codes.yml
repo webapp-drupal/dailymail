@@ -1,9 +1,10 @@
-uuid: b9deb847-17b4-4d36-8392-89a5a2604cb0
+uuid: 063b594f-1e5e-42d8-8b66-d20d88917fd4
 langcode: en
 status: true
 dependencies:
   config:
     - system.menu.admin
+    - user.role.administrator
   module:
     - better_exposed_filters
     - claims
@@ -11,6 +12,7 @@ dependencies:
     - node
     - rest
     - serialization
+    - user
     - views_data_export
 id: claimed_codes
 label: 'Claimed codes'
@@ -28,10 +30,12 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
@@ -45,7 +49,7 @@ display:
         type: bef
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -60,11 +64,14 @@ display:
               autosubmit: false
               autosubmit_exclude_textfield: false
               autosubmit_hide: false
-            claim_date:
-              bef_format: bef_datepicker
+            partner_titles:
+              bef_format: default
               more_options:
+                bef_select_all_none: false
+                bef_collapsible: false
                 is_secondary: false
-                placeholder_text: ''
+                rewrite:
+                  filter_rewrite_values: ''
             pin_code:
               bef_format: default
               more_options:
@@ -72,6 +79,11 @@ display:
                 placeholder_text: ''
             voucher_code:
               bef_format: default
+              more_options:
+                is_secondary: false
+                placeholder_text: ''
+            claim_date:
+              bef_format: bef_datepicker
               more_options:
                 is_secondary: false
                 placeholder_text: ''
@@ -625,6 +637,274 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
+      tags: {  }
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: 'Partner Voucher Usage'
+    position: 3
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      filters:
+        voucher_code:
+          id: voucher_code
+          table: claim_codes_report
+          field: voucher_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: voucher_code_op
+            label: 'Voucher Code'
+            description: ''
+            use_operator: false
+            operator: voucher_code_op
+            identifier: voucher_code
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+      defaults:
+        filters: false
+        filter_groups: false
+        fields: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      fields:
+        claim_date:
+          id: claim_date
+          table: claim_codes_report
+          field: claim_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Claim date'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: custom
+          custom_date_format: 'd/m/y - H:i'
+          timezone: ''
+          plugin_id: date
+        pin_code:
+          id: pin_code
+          table: claim_codes_report
+          field: pin_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Pin Code'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        voucher_code:
+          id: voucher_code
+          table: claim_codes_report
+          field: voucher_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Voucher Code'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        voucher_expire:
+          id: voucher_expire
+          table: claim_codes_report
+          field: voucher_expire
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Voucher Expire Date'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: custom
+          custom_date_format: d/m/y
+          timezone: ''
+          plugin_id: date
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.roles
       tags: {  }
   data_export_1:
     display_plugin: data_export
@@ -633,12 +913,12 @@ display:
     position: 2
     display_options:
       display_extenders: {  }
-      path: admin/reports/claims/export
-      filename: claims_report.csv
       pager:
         type: none
         options:
           offset: 0
+      path: admin/reports/claims/export
+      filename: claims_report.csv
       displays:
         page_1: page_1
         default: '0'
@@ -673,6 +953,7 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
+        - user.roles
       tags: {  }
   page_1:
     display_plugin: page
@@ -698,4 +979,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }

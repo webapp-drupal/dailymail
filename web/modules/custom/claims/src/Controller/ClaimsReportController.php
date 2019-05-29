@@ -50,7 +50,7 @@ class ClaimsReportController extends ControllerBase {
    *   Return Hello string.
    */
   public function voucherUsage($nid) {
-    $details = views_embed_view('claim_reports', 'block_1', $nid);
+    $details = views_embed_view('claimed_codes', 'block_1', $nid);
     return $details;
   }
 

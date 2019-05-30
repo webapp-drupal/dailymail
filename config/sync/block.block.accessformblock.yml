@@ -28,6 +28,6 @@ visibility:
   expiry:
     id: expiry
     start: ''
-    end: 1559170799
+    end: 1559257140
     negate: false
     context_mapping: {  }

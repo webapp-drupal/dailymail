@@ -1,0 +1,32 @@
+uuid: 51d729ea-5b78-4dc3-b190-f63779d4c7ed
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:7cc42fe9-3ebb-4acc-bd1f-0e6b354b7373'
+  module:
+    - block_content
+    - block_scheduler
+  theme:
+    - dailymail
+id: formclosedmessage
+theme: dailymail
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:7cc42fe9-3ebb-4acc-bd1f-0e6b354b7373'
+settings:
+  id: 'block_content:7cc42fe9-3ebb-4acc-bd1f-0e6b354b7373'
+  label: 'Form closed message'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  expiry:
+    id: expiry
+    start: 1559257140
+    end: 1559343540
+    negate: false
+    context_mapping: {  }

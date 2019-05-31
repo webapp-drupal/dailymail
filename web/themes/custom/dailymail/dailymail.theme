@@ -232,8 +232,8 @@ function dailymail_preprocess_entity_print(&$variables) {
   }
 
   $reward_image = $render = [
-    '#theme' => 'image_style',
-    '#style_name' => 'reward_image',
+    '#theme' => 'image',
+    // '#style_name' => 'reward_image',
     '#uri' => $reward_image_uri,
   ];
 

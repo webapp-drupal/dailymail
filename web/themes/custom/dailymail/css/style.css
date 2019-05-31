@@ -61,20 +61,20 @@ article {min-height:660px;}
 /***************** CLAIM COFFEE PAGE CSS ENDS HERE ****************/
 
 /***************** CLAIM VOUCHER PAGE CSS STARTS HERE ****************/
-.print-link, .bordered, .bordered .logo, .bordered .business-logo, .bordered .title, .voucher-code, .validity, .terms{float: left;width: 100%;display: block;}
+.print-link, .bordered, .bordered .logo, .bordered .business-logo, .bordered .title, .voucher-code, .validity, .terms, .voucher-image, .single-use{float: left;width: 100%;display: block;}
 .claim-voucher #block-dailymail-content{text-align: center;}
 .claim-voucher article{max-width: 630px;display: inline-block;}
-.claim-voucher article .bordered{border: 2px solid #000; border-radius: 10px;padding-bottom: 40px;}
-.bordered .logo {text-align: left;padding: 15px 0 0;}
-.bordered .logo img{max-width: 140px;}
+.claim-voucher article .bordered{border: 2px solid #000; border-radius: 10px;padding-bottom:20px;}
+.bordered .logo {text-align: left;padding: 10px 0 0;}
+.bordered .logo img{max-width: 120px;}
 .bordered .business-logo{text-align: center;}
-.bordered .business-logo img{height:55px; object-fit: contain;}
-.bordered .title{font-size: 30px;line-height: 36px;text-transform: uppercase;font-weight: 600;margin: 20px 0;}
-.bordered .voucher-code{margin:40px 0 20px; }
-.bordered .voucher-code span {min-width: 340px;display: inline-block;border: solid 2px black; padding: 15px 40px;font-size: 36px;line-height: 40px;text-transform: uppercase;font-weight:400;}
-.bordered .voucher-image img{width: 100%;height: auto; margin: 0 0 25px;}
+.bordered .business-logo img{height:40px; object-fit: contain;}
+.bordered .title{font-size:24px;line-height:30px;text-transform: uppercase;font-weight: 600;margin:10px 0;}
+.bordered .voucher-code{margin:15px 0; }
+.bordered .voucher-code span {min-width: 340px;display: inline-block;border: solid 2px black; padding:5px 40px;font-size: 28px;line-height: 35px;text-transform: uppercase;font-weight:400;}
+.bordered .voucher-image img{width: 100%;height: auto; margin: 0 0 20px;}
 .bordered .validity{font-size:24px;line-height: 30px;text-transform: uppercase;font-weight: 600;margin:0;}
-.bordered .single-use{font-size:24px;line-height: 30px;text-transform: uppercase;font-weight: 700;margin:0;}
+.bordered .single-use{font-size:20px;line-height: 24px;text-transform: uppercase;font-weight: 700;margin:0;}
 .terms{margin: 20px 0;text-align: left;font-size: 14px;font-weight: 600;line-height: 24px;}
 .terms ol{padding:0 0 0 20px;}
 .terms ol li{font-weight: 400;line-height: 20px;}
@@ -111,73 +111,77 @@ footer .menu-item a {line-height: 26px;background: #000000;color: aliceblue;lett
 
 /***************** SITE RESPONSIVE CSS STARTS HERE ****************/
 @media (min-width:280px) and (max-width:579px) {
-    .h3, h3{font-size: 18px;}
-    p:empty{display: none;}
-    #access-form.form-inline .js-form-item.form-item{padding: 0;margin:20px 0;}
-    #access-form.form-inline .js-form-item.form-item label{width: 100%;display: block;margin: 0;text-align: center;}
-    #access-form.form-inline .js-form-item.form-item input.input-lg.form-text{width: 100%;}
-    #access-form.form-inline #edit-submit{position: static; display: block;margin: 20px auto 0; width: 100%;}
+  .h3, h3{font-size: 18px;}
+  p:empty{display: none;}
+  #access-form.form-inline .js-form-item.form-item{padding: 0;margin:20px 0;}
+  #access-form.form-inline .js-form-item.form-item label{width: 100%;display: block;margin: 0;text-align: center;}
+  #access-form.form-inline .js-form-item.form-item input.input-lg.form-text{width: 100%;}
+  #access-form.form-inline #edit-submit{position: static; display: block;margin: 20px auto 0; width: 100%;}
 
-    .bordered .title {font-size: 30px;line-height: 36px;}
-    .validity {font-size: 24px;line-height: 30px;}
+  .bordered .title {font-size: 20px;line-height: 24px;}
+  .bordered .validity {font-size: 18px;line-height: 22px;padding: 0 10px;}
+  .bordered .business-logo img {height: 30px;margin: 7px 0;}
+  .bordered .single-use{font-size: 16px;line-height: 20px;}
+  .bordered .logo img {max-width: 100px;}
+  .bordered .voucher-code {margin: 12px 0;}
+  .bordered .voucher-code span{min-width: 260px;padding: 5px;font-size: 18px;line-height: 20px;}
 }
 
 @media (min-width:580px) and (max-width:767px) {
-    .h3, h3{font-size: 20px;}
-    #access-form.form-inline #edit-submit{width: 120px;}
-    #access-form.form-inline .js-form-item.form-item{padding-right:145px;}
-    #access-form.form-inline .js-form-item.form-item label{font-size:14px;}
-    #access-form.form-inline .js-form-item.form-item input.input-lg.form-text{width:175px;}
-
+  .h3, h3{font-size: 20px;}
+  #access-form.form-inline #edit-submit{width: 120px;}
+  #access-form.form-inline .js-form-item.form-item{padding-right:145px;}
+  #access-form.form-inline .js-form-item.form-item label{font-size:14px;}
+  #access-form.form-inline .js-form-item.form-item input.input-lg.form-text{width:175px;}
+  .bordered .voucher-code span{min-width: 260px;padding: 10px;font-size: 24px;line-height: 30px;}
 }
 
 @media (max-width:767px) {
-    .h3, h3{line-height: 24px;}
-    .h1, h1 {font-size: 24px;line-height: 30px;}
-	 #better-messages-default.better-messages-overlay.better-messages-position-fixed{width:90% !important;margin:0 5%;left: 0 !important;}
-    .nav > li{display: inline-block;}
-    .reward-info div.description, .reward-info p.title{height:auto;}
-    #partners-view #views-bootstrap-partners-page-1 .row > div{width: 100%;}
-    #views-bootstrap-partners-page-1{padding: 0 15px;}
-    .bordered .voucher-code span{min-width: 260px;padding: 10px;font-size: 24px;line-height: 30px;}
-    #limitless-root .llm-anchor, #limitless-root .llm-anchor .llm1, footer .navbar-nav{position: static;}
-    footer .menu-item a{height: 40px;line-height: 20px;margin: 0 auto;width: 275px;}
-    #limitless-root .llm-anchor .llm1{margin: 0 auto;display: block;width: 185px;height: 40px;line-height: 40px;text-align: center;}
-    #limitless-root .llm-anchor{width: 100%;}
-    #block-chat{margin: 0;}
-    footer{margin: 30px 0 40px;}
+  .h3, h3{line-height: 24px;}
+  .h1, h1 {font-size: 24px;line-height: 30px;}
+  #better-messages-default.better-messages-overlay.better-messages-position-fixed{width:90% !important;margin:0 5%;left: 0 !important;}
+  .nav > li{display: inline-block;}
+  .reward-info div.description, .reward-info p.title{height:auto;}
+  #partners-view #views-bootstrap-partners-page-1 .row > div{width: 100%;}
+  #views-bootstrap-partners-page-1{padding: 0 15px;}
+  #limitless-root .llm-anchor, #limitless-root .llm-anchor .llm1, footer .navbar-nav{position: static;}
+  footer .menu-item a{height: 40px;line-height: 20px;margin: 0 auto;width: 275px;}
+  #limitless-root .llm-anchor .llm1{margin: 0 auto;display: block;width: 185px;height: 40px;line-height: 40px;text-align: center;}
+  #limitless-root .llm-anchor{width: 100%;}
+  #block-chat{margin: 0;}
+  footer{margin: 30px 0 40px;}
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    #access-form.form-inline #edit-submit{width: 130px;}
-    #access-form.form-inline .js-form-item.form-item{padding-right: 160px;}
-    #access-form.form-inline .js-form-item.form-item label{font-size: 16px;}
-    #access-form.form-inline .js-form-item.form-item input.input-lg.form-text{width: 220px;}
-    .header .hidden-lg{ float: right; }
-    .reward-info div.description{height: 140px;}
-    body{padding-bottom: 40px;}
+  #access-form.form-inline #edit-submit{width: 130px;}
+  #access-form.form-inline .js-form-item.form-item{padding-right: 160px;}
+  #access-form.form-inline .js-form-item.form-item label{font-size: 16px;}
+  #access-form.form-inline .js-form-item.form-item input.input-lg.form-text{width: 220px;}
+  .header .hidden-lg{ float: right; }
+  .reward-info div.description{height: 140px;}
+  body{padding-bottom: 40px;}
 }
 
 
 @media (max-width:991px) {
-    .navbar-toggler {display: block;z-index: 9999;position: relative;}
-    .header .navbar-nav {margin: 0;width: 100%;padding: 0 15px;}
-    .navbar-nav.nav > li{display: block;width: 100%;text-align: center;}
-    .header .navbar-nav > li > a{font-size: 24px;line-height: 36px;color: #fff;}
-    .header .navbar-nav > li > a:hover, .header .navbar-nav > li > a:focus{text-decoration: none;}
-    .menu-items { display: none;}
-    .main-menu{padding-top: 130px;position: fixed;top:0;left: 0;background: rgba(0,0,0,.7);height: 100%;z-index: 99;}
-    .navbar-toggler .open, .main-menu-container.open .navbar-toggler .closed{display: none;}
-    .main-menu-container.open .navbar-toggler .open{display: block;}
+  .navbar-toggler {display: block;z-index: 9999;position: relative;}
+  .header .navbar-nav {margin: 0;width: 100%;padding: 0 15px;}
+  .navbar-nav.nav > li{display: block;width: 100%;text-align: center;}
+  .header .navbar-nav > li > a{font-size: 24px;line-height: 36px;color: #fff;}
+  .header .navbar-nav > li > a:hover, .header .navbar-nav > li > a:focus{text-decoration: none;}
+  .menu-items { display: none;}
+  .main-menu{padding-top: 130px;position: fixed;top:0;left: 0;background: rgba(0,0,0,.7);height: 100%;z-index: 99;}
+  .navbar-toggler .open, .main-menu-container.open .navbar-toggler .closed{display: none;}
+  .main-menu-container.open .navbar-toggler .open{display: block;}
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-    .header .hidden-lg{ float: right; }
-    .reward-info div.description{height: 165px;}
-    body{padding-bottom: 40px;}
+  .header .hidden-lg{ float: right; }
+  .reward-info div.description{height: 165px;}
+  body{padding-bottom: 40px;}
 }
 
 @media (min-width:1200px) {
-    .header .hidden-xs.hidden-sm{display: block;}
+  .header .hidden-xs.hidden-sm{display: block;}
 }
 /***************** SITE RESPONSIVE CSS ENDS HERE ****************/

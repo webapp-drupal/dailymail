@@ -102,7 +102,7 @@ class ClaimVoucherController extends ControllerBase {
     // Unset the temporary user data that allow access to claim page
     // $this->userPrivateTempstore->get('claims')->delete('voucher_code');
     // $this->userPrivateTempstore->get('claims')->delete('partner');
-    // $this->userPrivateTempstore->get('pin_codes')->delete('pin_code');
+    $this->userPrivateTempstore->get('pin_codes')->delete('pin_code');
 
     $node = $this->entityTypeManager->getViewBuilder('node')->view($partner_node);
 

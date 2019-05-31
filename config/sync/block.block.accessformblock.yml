@@ -27,7 +27,7 @@ visibility:
     context_mapping: {  }
   expiry:
     id: expiry
-    start: ''
-    end: 1559257140
+    start: 1559343540
+    end: 1559861940
     negate: false
     context_mapping: {  }

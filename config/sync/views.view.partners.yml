@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_about_business
     - field.storage.node.field_reward_image
     - field.storage.node.field_weight
-    - image.style.480x320
     - node.type.partners
     - system.menu.footer
     - user.role.administrator
@@ -123,7 +122,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: 480x320
+            image_style: ''
             image_link: ''
           group_column: ''
           group_columns: {  }
